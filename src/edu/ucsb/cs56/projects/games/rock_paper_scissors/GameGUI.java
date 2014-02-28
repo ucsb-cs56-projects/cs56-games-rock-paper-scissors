@@ -35,6 +35,10 @@ public class GameGUI extends JPanel{
     JButton rock = new JButton("Charmander");
     JButton scissors = new JButton("Squirtle");
     JButton paper = new JButton("Bulbasaur");
+    //JButton change games
+    JButton changeGame = new JButton ("Go back to Game Selection");
+    //
+
     JTextField played = new JTextField(10);
     JTextField win = new JTextField(10);
     JTextField lose = new JTextField(10);
@@ -138,6 +142,13 @@ public class GameGUI extends JPanel{
         frame.add(scissors, gc);
         gc.gridx=2;
         gc.gridy=4;
+	//	
+	gc.gridx=1;
+	changeGame.addActionListener( new changeGameListener());
+	//gc.insets = new Insets (5,5,5,55);
+	frame.add(changeGame, gc);
+	gc.gridx=2;
+	//
         gc.insets = new Insets(5,5,5,5);
         frame.add(wins, gc);
         gc.gridy=5;
@@ -316,8 +327,16 @@ public class GameGUI extends JPanel{
             played.setText(""+games);
         }
     }//end ScissorsListener
-        
-    
+  
+    ///      
+    class changeGameListener implements ActionListener{
+	public void actionPerformed(ActionEvent event){
+	    frame.dispose();
+	    new RunGame();
+	    }
+    }
+    ///
+
 }//end GameGUI
 
 

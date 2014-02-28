@@ -12,10 +12,10 @@ import java.io.*;
 
 public class Run{
 
-	public static void main(String[] args){
-	GameGUI a = new GameGUI();
-	a.setUpHomeScreen();
-	}
+	// public static void main(String[] args){
+	// GameGUI a = new GameGUI();
+	// a.setUpHomeScreen();
+	// }
 	
 	//end main
 
