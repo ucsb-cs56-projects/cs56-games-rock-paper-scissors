@@ -3,7 +3,17 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
+
+/**
+    A rock paper scissor game that has a command line interface
+    as well as a graphical user interface. Game is 1 player.
+    Also a tic tac toe game with 2 players.
+
+    @author Lesley Khuu   (previous authors Gerard Gonzalez and Connor Tinsely (Original:Dennis Huynh and Aki Stankoski) )
  
+    @version for cs56, Winter 14, UCSB
+*/ 
+
 public class RunGame extends JFrame {
     
     private ButtonGroup group;

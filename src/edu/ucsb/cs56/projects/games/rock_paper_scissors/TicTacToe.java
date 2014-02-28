@@ -2,26 +2,27 @@ package edu.ucsb.cs56.projects.games.rock_paper_scissors;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
-//import java.awt.image.*;
-//import javax.imageio.ImageIO;
-
-//import java.awt.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-//import java.awt.event.*;
 import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-//import javax.swing.*;
 import java.awt.Dimension;
 import java.applet.*;
 import java.net.*;
+
+
+/**
+ * Class that creates the Tic Tac Toe game.
+ *
+ *
+ * @author lesley Khuu (previous authors Gerard Gonzalez and Connor Tinsely (Original:Dennis Huynh and Aki Stankoski) )
+ */
 
 //public class TicTacToe extends JFrame implements ActionListener{
 public class TicTacToe extends JFrame{
