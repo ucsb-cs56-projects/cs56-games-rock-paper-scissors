@@ -9,9 +9,10 @@ import java.io.*;
     as well as a graphical user interface. Game is 1 player.
     Also a tic tac toe game with 2 players.
 
+
     @author Lesley Khuu   (previous authors Gerard Gonzalez and Connor Tinsely (Original:Dennis Huynh and Aki Stankoski) )
  
-    @version for cs56, Winter 14, UCSB
+    @version for CS56, Winter 14, UCSB
 */ 
 
 public class RunGame extends JFrame {
@@ -33,7 +34,7 @@ public class RunGame extends JFrame {
         radioPanel.add( rps );
         getContentPane().add( radioPanel, BorderLayout.CENTER );
         JPanel buttonPanel = new JPanel();
-        JButton pickGame = new JButton( "I choose you!" );
+        JButton pickGame = new JButton( "Let's Play!" );
         pickGame.addActionListener( new pickGameListener() );
         buttonPanel.add( pickGame );
         getContentPane().add( buttonPanel, BorderLayout.SOUTH );
@@ -43,15 +44,6 @@ public class RunGame extends JFrame {
     }
     
     public static void main( String[] arg ) {
-        // int x = 1;
-        // if ( x == 1 ){
-        //     new TicTacToe();
-        //    // b.TicTacToe();
-        // }
-        // if ( x == 2 ){
-        //     GameGUI a = new GameGUI();
-        //     a.setUpHomeScreen();
-        // }
         new RunGame();
     }
     
@@ -59,8 +51,7 @@ public class RunGame extends JFrame {
         public void actionPerformed( ActionEvent e ) {
             String selected = group.getSelection().getActionCommand();
             if ( selected == "Tic Tac Toe" ){
-                new TicTacToe();
-		        //  new First();
+                  new FirstPlayer();
         dispose();
             }
             if ( selected == "Rock Paper Scissors" ){

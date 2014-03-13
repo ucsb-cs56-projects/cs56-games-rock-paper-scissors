@@ -21,7 +21,7 @@ import java.net.*;
  * This class creates the GUI for the game.  It allows you to select your options for moves, as well as tell you how many games you've played, wont, lost, and tied.  There are also animations that appears on the screen when the player and the computer have chosen their moves.
  *
  *
- * @author Gerard Gonzalez and Connor Tinsely (Original:Dennis Huynh and Aki Stankoski) 
+ * @author Lesley Khuu (previous authors: Gerard Gonzalez and Connor Tinsely (Original:Dennis Huynh and Aki Stankoski)) 
  */
 
 public class GameGUI extends JPanel{
@@ -35,9 +35,8 @@ public class GameGUI extends JPanel{
     JButton rock = new JButton("Charmander");
     JButton scissors = new JButton("Squirtle");
     JButton paper = new JButton("Bulbasaur");
-    //JButton change games
     JButton changeGame = new JButton ("Go back to Game Selection");
-    //
+    
 
     JTextField played = new JTextField(10);
     JTextField win = new JTextField(10);
@@ -142,13 +141,10 @@ public class GameGUI extends JPanel{
         frame.add(scissors, gc);
         gc.gridx=2;
         gc.gridy=4;
-	//	
-	gc.gridx=1;
-	changeGame.addActionListener( new changeGameListener());
-	//gc.insets = new Insets (5,5,5,55);
-	frame.add(changeGame, gc);
-	gc.gridx=2;
-	//
+        gc.gridx=1;
+        changeGame.addActionListener( new ChangeGameListener());
+        frame.add(changeGame, gc);
+        gc.gridx=2;
         gc.insets = new Insets(5,5,5,5);
         frame.add(wins, gc);
         gc.gridy=5;
@@ -328,14 +324,14 @@ public class GameGUI extends JPanel{
         }
     }//end ScissorsListener
   
-    ///      
-    class changeGameListener implements ActionListener{
+          
+    class ChangeGameListener implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 	    frame.dispose();
 	    new RunGame();
 	    }
     }
-    ///
+   
 
 }//end GameGUI
 
