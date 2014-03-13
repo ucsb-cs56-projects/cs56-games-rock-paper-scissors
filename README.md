@@ -9,9 +9,11 @@ W14 | jcneally | TBD | rock paper scissors game using Pokemon
 This game is actually not just one game. It allows you to choose between two games. The first one is a tic tac toe game, which allows two players. The players get to choose which Pokemon (Squirtle, Bulbasaur, and Charmander) they want to be as the "x" and "O" pieces. The second game is a rock paper scissors game that uses the Pokemon Squirtle, Bulbasaur, and Charmander as rock, paper, and scissors.
 
 ![](http://i.imgur.com/qDigMC5.jpg)
+
 This is the Home Screen. This is where you choose which game you want to play.
 
 ![](http://i.imgur.com/h5i4VaL.jpg)
+
 If the player selects the Tic Tac Toe game, this screen will appear.
 The first player gets to choose which Pokemon they want to use for the game. In this picture they chose Charmander.
 
