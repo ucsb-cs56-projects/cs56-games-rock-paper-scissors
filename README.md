@@ -12,6 +12,10 @@ This game is actually not just one game. It allows you to choose between two gam
 
 This is the Home Screen. This is where you choose which game you want to play.
 
+
+
+
+
 ![](http://i.imgur.com/h5i4VaL.jpg)
 
 If the player selects the Tic Tac Toe game, this screen will appear.
