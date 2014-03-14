@@ -4,7 +4,7 @@ cs56-games-rock-paper-scissors
 W14 | jcneally | TBD | rock paper scissors game using Pokemon
 
 
-This game is actually not just one game. It allows you to choose between two games. The first one is a tic tac toe game, which allows two players. The players get to choose which Pokemon (Squirtle, Bulbasaur, and Charmander) they want to be as the "x" and "O" pieces. The second game is a rock paper scissors game that uses the Pokemon Squirtle, Bulbasaur, and Charmander as rock, paper, and scissors.
+This program allows you to choose between two games. The first one is a tic tac toe game, which allows two players. The players get to choose which Pokemon (Squirtle, Bulbasaur, and Charmander) they want to be as the "X" and "O" pieces. The second game is a rock paper scissors game that uses the Pokemon Squirtle, Bulbasaur, and Charmander as rock, paper, and scissors.
 
 ![](http://i.imgur.com/qDigMC5.jpg)
 
@@ -41,7 +41,7 @@ The first player gets to choose which Pokemon they want to use for the game. In 
 
 ![](http://i.imgur.com/rfJGuJZ.png)
 
->When a Pokemon is selected from the bottom right, the computer will generate a random Pokemon as well. If the player win, loses, or ties against the computer, then it will say it in the center text box. The score is kept on the bottom right of the screen.
+>When a Pokemon is selected from the bottom left, the computer will generate a random Pokemon as well. If the player win, loses, or ties against the computer, then it will say it in the center text box. The score is kept on the bottom right of the screen.
 
 
 
@@ -190,7 +190,7 @@ gc.insets = new Insets(5,75,5,5);
 		
     }
 ```
->The Rock Paper Scissors uses a GridBagLayout. The way to set up where the buttons go is by changing the x and y coordinates and adding in the button with the actionListner.
+>The Rock Paper Scissors uses a GridBagLayout. The way to set up where the buttons go is by changing the x and y coordinates and adding in the button with the actionListener.
 
 ## How to run 
 To start the game, use `ant run`. 
