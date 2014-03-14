@@ -35,7 +35,7 @@ public class RunGame extends JFrame {
         getContentPane().add( radioPanel, BorderLayout.CENTER );
         JPanel buttonPanel = new JPanel();
         JButton pickGame = new JButton( "Let's Play!" );
-        pickGame.addActionListener( new pickGameListener() );
+        pickGame.addActionListener( new PickGameListener() );
         buttonPanel.add( pickGame );
         getContentPane().add( buttonPanel, BorderLayout.SOUTH );
         setDefaultCloseOperation( EXIT_ON_CLOSE );
@@ -47,7 +47,7 @@ public class RunGame extends JFrame {
         new RunGame();
     }
     
-    private class pickGameListener implements ActionListener {
+    private class PickGameListener implements ActionListener {
         public void actionPerformed( ActionEvent e ) {
             String selected = group.getSelection().getActionCommand();
             if ( selected == "Tic Tac Toe" ){
