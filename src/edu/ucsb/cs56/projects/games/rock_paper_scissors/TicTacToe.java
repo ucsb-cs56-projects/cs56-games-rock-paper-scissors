@@ -77,8 +77,6 @@ public class TicTacToe extends JFrame{
 	public void actionPerformed(ActionEvent e){
 	    count ++;
 		for (int i = 0; i <= 8; i++){
-                    //not sure if .equals or == works better
-                    //if (button[i] == e.getSource()){
                     if (button[i].equals(e.getSource())){
                         if (sign%2 == 0){
                             button[i].setIcon(image1);

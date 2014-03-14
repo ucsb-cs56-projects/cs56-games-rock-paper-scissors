@@ -7,9 +7,9 @@ import java.io.*;
 
 
 /**
-*This class allows the first player to choose their Pokemon.
+*This class allows the first player to choose their Pokemon. It creates a window that gives the first player the options.
 *@author Lesley Khuu
-*@version for cs56, W14
+*@version for CS56, W14
 */
 
 public class FirstPlayer extends JFrame {
@@ -17,7 +17,7 @@ public class FirstPlayer extends JFrame {
     private ButtonGroup group;
     
     public FirstPlayer() {
-        super("Pick your Pokemon Ashe!");
+        super("Pick your Pokemon Ash!");
         JPanel radioPanel = new JPanel();
         radioPanel.setLayout( new GridLayout(1, 4) );
         group = new ButtonGroup();
