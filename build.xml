@@ -7,7 +7,7 @@
 	<property name="course" value="cs56" />
 	<property name="quarter" value="S12" />
 	<property name="issueNum" value="0000513" />
-	<property name="mainClass" value="edu.ucsb.cs56.projects.games.rock_paper_scissors.Run" />
+	<property name="mainClass" value="edu.ucsb.cs56.projects.games.rock_paper_scissors.RunGame" />
   	<property name="projectName" 	value="rps"/> 
 	<property name="projectPath" value="${course}/${quarter}/issues/${issueNum}" />
   	<property name="jwsDest" 	value="${webRoot}/${projectPath}/jws"/> 
