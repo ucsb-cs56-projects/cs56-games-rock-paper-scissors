@@ -39,6 +39,7 @@ public class NoSquirtle extends JFrame {
         getContentPane().add( buttonPanel, BorderLayout.SOUTH );
         setDefaultCloseOperation( EXIT_ON_CLOSE );
         setSize(600, 300);
+	setLocationRelativeTo(null); //Center frame
         setVisible(true);
         
         
