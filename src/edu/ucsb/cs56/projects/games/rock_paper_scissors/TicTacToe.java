@@ -62,6 +62,7 @@ public class TicTacToe extends JFrame{
             gameChange.addActionListener ( new ChangeGameListener() );	
             this.add( gameChange, BorderLayout.SOUTH);
             this.setSize(600,600);
+  	    this.setLocationRelativeTo(null); //Center frame
             this.setDefaultCloseOperation(EXIT_ON_CLOSE);
             this.setVisible(true);
 	}
