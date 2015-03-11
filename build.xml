@@ -1,21 +1,17 @@
 <project default="compile">
-  <!-- build.xml for github.com/CSB-CS56-Projects/cs56-games-rock-paper-scissors
+  <!-- build.xml for github.com/UCSB-CS56-Projects/cs56-games-rock-paper-scissors
   original author: Lesley Khuu W14
   updated Jordan Nguyen & Brandon Wicka for W15-->
   
 	<property environment="env"/> <!-- load the environment variables --> 
-  	<property name="webRoot" 	value="${env.HOME}/public_html/"/>
-  	<property name="webBaseURL" 	value="http://www.cs.ucsb.edu/~${env.USER}"/>
-	<property name="course" value="cs56" />
-	<property name="quarter" value="S12" />
-	<property name="issueNum" value="0000513" />
-	<property name="mainClass" value="edu.ucsb.cs56.projects.games.rock_paper_scissors.RunGame" />
-  	<property name="projectName" 	value="rps"/> 
-	<property name="projectPath" value="${course}/${quarter}/issues/${issueNum}" />
-  	<property name="jwsDest" 	value="${webRoot}/${projectPath}/jws"/> 
-  	<property name="jwsURL" 	value="${webBaseUrl}/${projectPath}/jws"/> 
-  	<property name="javadocDest" 	value="${webRoot}/${projectPath}/javadoc"/> 
-  	<property name="javadocURL" 	value="${webBaseURL}/${projectPath}/javadoc"/>
+  	<property name="webRoot" 	value="${env.HOME}/public_html/cs56"/>
+  	<property name="webBaseURL" 	value="http://www.cs.ucsb.edu/~${env.USER}/cs56"/>
+
+	<property name="mainClass" value="RunGame" />
+  	<property name="project" 	value="cs56-games-rock-paper-scissors"/>
+
+  	<property name="javadocDest" 	value="${webRoot}/${project}/javadoc" />
+  	<property name="javadocURL" 	value="${webBaseURL}/${project}/javadoc"/>
 
 	<path id="project.class.path">
 		<pathelement location="build"/>
