@@ -7,7 +7,7 @@
   	<property name="webRoot" 	value="${env.HOME}/public_html/cs56"/>
   	<property name="webBaseURL" 	value="http://www.cs.ucsb.edu/~${env.USER}/cs56"/>
 
-	<property name="mainClass" value="RunGame" />
+	<property name="mainClass" value="edu.ucsb.cs56.projects.games.rock_paper_scissors.RunGame" />
   	<property name="project" 	value="cs56-games-rock-paper-scissors"/>
 
   	<property name="javadocDest" 	value="${webRoot}/${project}/javadoc" />
