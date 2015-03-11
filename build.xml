@@ -1,6 +1,6 @@
 <project default="compile">
   <!-- build.xml for github.com/UCSB-CS56-Projects/cs56-games-rock-paper-scissors
-  original author: Lesley Khuu W14
+  original authors: Dennis Huynh and Aki Stankoski
   updated Jordan Nguyen & Brandon Wicka for W15-->
   
 	<property environment="env"/> <!-- load the environment variables --> 
