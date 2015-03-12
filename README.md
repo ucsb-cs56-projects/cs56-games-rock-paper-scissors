@@ -8,6 +8,7 @@ project history
  W15 | mliou (mentor) | brandonwicka & jordannguyen 4pm | (jcneally) rock paper scissors game using Pokemon
 ```
 
+## Overview
 
 This program allows a choice between two games. The first game is a two player tic tac toe. The players get to choose which Pokemon (Squirtle, Bulbasaur, and Charmander) they want to be as their "X" and "O" pieces. The second game is rock-paper-scissors which also uses Squirtle, Bulbasaur, and Charmander as rock, paper, and scissors, respectively, to play against the computer.
 
