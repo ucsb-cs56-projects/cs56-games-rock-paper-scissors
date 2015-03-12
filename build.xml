@@ -1,18 +1,20 @@
 <project default="compile">
   <!-- build.xml for github.com/UCSB-CS56-Projects/cs56-games-rock-paper-scissors, S12, 
-       original author: Lesley Khuu W14, 
+       original author: Lesley Khuu W14 (TicTacToe),
+       original author: Connor Tinsley & Gerard Gonzalez (Rock Paper Scissors),
        updated by: Andrew Ferguson for W15-->
   
 	<property environment="env"/> <!-- load the environment variables --> 
 
   	<property name="webRoot" 	value="${env.HOME}/public_html/cs56"/>
   	<property name="webBaseURL" 	value="http://www.cs.ucsb.edu/~${env.USER}/cs56"/>
-
-	<property name="mainClass" value="edu.ucsb.cs56.projects.games.rock_paper_scissors.RunGame"/>
   	<property name="project" 	value="cs56-games-rock-paper-scissors"/>
 
   	<property name="javadocDest" 	value="${webRoot}/${project}/javadoc" />
   	<property name="javadocURL" 	value="${webBaseURL}/${project}/javadoc"/>
+
+	<property name="MainClass" value="edu.ucsb.cs56.projects.games.rock_paper_scissors.RunGame"/>
+
 
 	<path id="project.class.path">
 		<pathelement location="build"/>
@@ -28,7 +30,7 @@
 </target>
 
 <target name="run" depends="compile" description="run program">
-  	<java classname="${mainClass}" classpath = "build" fork="true"/>
+  	<java classname="${MainClass}" classpath = "build" fork="true"/>
 </target>
 
 <target name="clean" description="delete unnecessary files and directories">
