@@ -167,7 +167,7 @@ public class GameGUI extends JPanel{
         frame.setBackground(Color.WHITE);
         frame.pack();
 	frame.setLocationRelativeTo(null); //Center frame
-       frame.setVisible(true);    
+	frame.setVisible(true);    
         
 		
     }//end setUpHomeScreen

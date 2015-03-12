@@ -10,7 +10,10 @@ import java.io.*;
     Also a tic tac toe game with 2 players.
 
 
-    @author Lesley Khuu   (previous authors Gerard Gonzalez and Connor Tinsely (Original:Dennis Huynh and Aki Stankoski) )
+    @author Andrew Ferguson   
+    Original: Dennis Huynh and Aki Stankoski (Rock Paper Scissors)
+    Original: Lesley Khuu (Tic Tac Toe)
+    Previously updated by: Gerard Gonzalex and Connor Tinsely
  
     @version for CS56, Winter 14, UCSB
 */ 
