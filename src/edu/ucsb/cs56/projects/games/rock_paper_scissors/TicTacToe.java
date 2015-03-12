@@ -1,23 +1,12 @@
 package edu.ucsb.cs56.projects.games.rock_paper_scissors;
 import javax.swing.*;
+import java.applet.AudioClip;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import java.awt.Dimension;
-import java.applet.*;
-import java.net.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-
-//BUGS: WHEN BUTTON IS CLICKED, POKEMON IS BLACK AND WHITE, NO COLOR.
 
 /**
  * Class that creates the Tic Tac Toe game.
@@ -40,6 +29,8 @@ public class TicTacToe extends JFrame{
     ImageIcon image2;
     String name1;
     String name2;
+    AudioClip pok1, pok2;
+    URL bulba, charm, squirt;
 
 
 	public TicTacToe(ImageIcon first, ImageIcon second, String firstName, String secondName){
@@ -76,23 +67,78 @@ public class TicTacToe extends JFrame{
     class TicTacListener implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 	    count ++;
+
+        //load pokemon sound files
+        try {
+            ///bulba = new URL("file:///C:/Users/brand_000/Documents/GitHub/cs56-games-rock-paper-scissors/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/bulbasaur.wav");
+            bulba = new URL("file:src/edu/cs56/projects/rock_paper_scissors/sounds/bulbasaur.wav");
+        }
+        catch (MalformedURLException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            //squirt = new URL("file:///C:/Users/brand_000/Documents/GitHub/cs56-games-rock-paper-scissors/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/squirtle.wav");
+            squirt = new URL("file:src/edu/cs56/projects/rock_paper_scissors/sounds/squirtle.wav");
+        }
+        catch (MalformedURLException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            //charm = new URL("file:///C:/Users/brand_000/Documents/GitHub/cs56-games-rock-paper-scissors/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/charmander.wav");
+            charm = new URL("file:src/edu/cs56/projects/rock_paper_scissors/sounds/charmander.wav");
+        }
+        catch (MalformedURLException ex) {
+            ex.printStackTrace();
+        }
+
+        //check which pokemon are in use and import their correct sounds
+        if (name1 == "Bulbasaur") {
+            pok1 = java.applet.Applet.newAudioClip(bulba);
+        }
+        else
+            if(name1 == "Squirtle") {
+
+                pok1 = java.applet.Applet.newAudioClip(squirt);
+            }
+        else
+                pok1 = java.applet.Applet.newAudioClip(charm);
+
+        //load sounds for player 2
+        if (name2 == "Bulbasaur") {
+            pok2 = java.applet.Applet.newAudioClip(bulba);
+        }
+        else
+        if(name2 == "Squirtle") {
+
+            pok2 = java.applet.Applet.newAudioClip(squirt);
+        }
+        else
+            pok2 = java.applet.Applet.newAudioClip(charm);
+
+
+
 		for (int i = 0; i <= 8; i++){
                     if (button[i].equals(e.getSource())){
                         if (sign%2 == 0){
                             button[i].setIcon(image1);
+                            button[i].setDisabledIcon(image1);
+                            pok1.play();
                             button[i].setEnabled(false);
                             isSet[i] = 1;
 			}
                     else{
-			button[i].setIcon(image2);
+			            button[i].setIcon(image2);
+                        button[i].setDisabledIcon(image2);
+                        pok2.play();
                         button[i].setEnabled(false);
-			isSet[i] = 2;
+			            isSet[i] = 2;
 			}
                     }
                 }
 	    sign++;
-            checkWinner();
-            if (count >= 9) {
+        checkWinner();
+
+        if (count >= 9) {
 		JOptionPane.showMessageDialog(null, "Tie!");
 		for (int j = 0; j <= 8; j++){
                     button[j].setText("");
