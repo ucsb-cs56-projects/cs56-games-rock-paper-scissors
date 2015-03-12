@@ -1,7 +1,7 @@
 cs56-games-rock-paper-scissors
 ==============================
 
-project history
+Project History
 ===============
 ```
  W14 | bkiefer13 4pm | lesleykhuu | (jcneally) rock paper scissors game using Pokemon
@@ -28,25 +28,6 @@ The first player gets to choose which Pokemon they want to use for the game. In 
 
 >The second player now gets to choose their Pokemon, but they can't choose the Pokemon that the first player chose. In this picture they chose Bulbasaur.
 
-![](http://i.imgur.com/XjD5ydT.jpg)
-
->This is an empty board.
-
-![](http://i.imgur.com/NBk6c2a.jpg])
-
->This is the game taking place. 
-
-![](http://i.imgur.com/2krgqty.jpg)
-
->When a player wins, a window will appear that says who won. If it's a tie, it will just say "Tie!".
-
-![](http://i.imgur.com/7B8GJ3b.jpg)
-
->This is the format of the Rock Paper Scissors game. 
-
-![](http://i.imgur.com/rfJGuJZ.png)
-
->When a Pokemon is selected from the bottom left, the computer will generate a random Pokemon as well. If the player win, loses, or ties against the computer, then it will say it in the center text box. The score is kept on the bottom right of the screen.
 
 
 
