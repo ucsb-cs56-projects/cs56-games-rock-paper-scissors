@@ -12,9 +12,13 @@ This program allows you to choose between two games. The first one is a tic tac 
 
 ![](http://i.imgur.com/lVaMkEt.png)
 
+--------------------------------------------------------------------------------
+
 The second game is a rock paper scissors game that uses the Pokemon Squirtle, Bulbasaur, and Charmander as rock, paper, and scissors.
 
 ![](http://i.imgur.com/X0VDCM5.png)
+
+--------------------------------------------------------------------------------
 
 >This is the Home Screen. This is where you choose which game you want to play.
 
