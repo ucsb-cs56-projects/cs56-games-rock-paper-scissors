@@ -16,20 +16,11 @@ The second game is a rock paper scissors game that uses the Pokemon Squirtle, Bu
 
 ![](http://i.imgur.com/X0VDCM5.png)
 
-![](http://i.imgur.com/qDigMC5.jpg)
-
 >This is the Home Screen. This is where you choose which game you want to play.
-
-
-
-
-
-![](http://i.imgur.com/h5i4VaL.jpg)
 
 >If the player selects the Tic Tac Toe game, this screen will appear.
 The first player gets to choose which Pokemon they want to use for the game. In this picture they chose Charmander.
 
-![](http://i.imgur.com/8jP7SRC.jpg)
 
 >The second player now gets to choose their Pokemon, but they can't choose the Pokemon that the first player chose. In this picture they chose Bulbasaur.
 
@@ -204,3 +195,7 @@ gc.insets = new Insets(5,75,5,5);
 
 ## How to run 
 To start the game, use `ant run`. 
+
+## More Information
+More information on the gameplay can be found at the link below:
+https://github.com/UCSB-CS56-Projects/cs56-games-rock-paper-scissors/wiki
