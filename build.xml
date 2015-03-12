@@ -1,7 +1,8 @@
 <project default="compile">
   <!-- build.xml for github.com/UCSB-CS56-Projects/cs56-games-rock-paper-scissors, S12, 
+       original author: Dennis Huynh and Aki Stankoski (Rock Paper Scissors),
        original author: Lesley Khuu W14 (TicTacToe),
-       original author: Connor Tinsley & Gerard Gonzalez (Rock Paper Scissors),
+       updated by: Connor Tinsley & Gerard Gonzalez,
        updated by: Andrew Ferguson for W15-->
   
 	<property environment="env"/> <!-- load the environment variables --> 
