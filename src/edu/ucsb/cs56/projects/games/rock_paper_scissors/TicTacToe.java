@@ -70,22 +70,19 @@ public class TicTacToe extends JFrame{
 
         //load pokemon sound files
         try {
-            ///bulba = new URL("file:///C:/Users/brand_000/Documents/GitHub/cs56-games-rock-paper-scissors/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/bulbasaur.wav");
-            bulba = new URL("file:src/edu/cs56/projects/rock_paper_scissors/sounds/bulbasaur.wav");
+            bulba = new URL("file:src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/bulbasaur.wav");
         }
         catch (MalformedURLException ex) {
             ex.printStackTrace();
         }
         try {
-            //squirt = new URL("file:///C:/Users/brand_000/Documents/GitHub/cs56-games-rock-paper-scissors/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/squirtle.wav");
-            squirt = new URL("file:src/edu/cs56/projects/rock_paper_scissors/sounds/squirtle.wav");
+            squirt = new URL("file:src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/squirtle.wav");
         }
         catch (MalformedURLException ex) {
             ex.printStackTrace();
         }
         try {
-            //charm = new URL("file:///C:/Users/brand_000/Documents/GitHub/cs56-games-rock-paper-scissors/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/charmander.wav");
-            charm = new URL("file:src/edu/cs56/projects/rock_paper_scissors/sounds/charmander.wav");
+            charm = new URL("file:src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/charmander.wav");
         }
         catch (MalformedURLException ex) {
             ex.printStackTrace();
