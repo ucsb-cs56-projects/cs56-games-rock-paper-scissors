@@ -101,3 +101,6 @@ gc.insets = new Insets(5,75,5,5);
 
 ## How to run 
 To start the game, use `ant run`. 
+
+## More info
+For a more in-depth look at this program, please visit the [wiki](https://github.com/UCSB-CS56-Projects/cs56-games-rock-paper-scissors/wiki).
