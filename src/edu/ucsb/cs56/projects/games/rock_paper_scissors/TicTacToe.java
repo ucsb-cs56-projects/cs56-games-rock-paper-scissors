@@ -81,11 +81,13 @@ public class TicTacToe extends JFrame{
                     if (button[i].equals(e.getSource())){
                         if (sign%2 == 0){
                             button[i].setIcon(image1);
+                            button[i].setDisabledIcon(image1);
                             button[i].setEnabled(false);
                             isSet[i] = 1;
 			}
                     else{
 			button[i].setIcon(image2);
+			button[i].setDisabledIcon(image2);
                         button[i].setEnabled(false);
 			isSet[i] = 2;
 			}
