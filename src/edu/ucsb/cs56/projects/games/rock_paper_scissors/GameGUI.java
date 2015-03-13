@@ -50,12 +50,13 @@ public class GameGUI extends JPanel{
     String move;
     int winner;
     int games=0;
-	JLabel picLabel;
+    JLabel picLabel;
     JLabel label1, label2, label3, label4, label5, label6;
     public void setUpHomeScreen(){
 		
 		
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.setLocationRelativeTo(null); //Center frame **NOT WORKING**
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();  
 		
@@ -165,7 +166,8 @@ public class GameGUI extends JPanel{
         frame.setSize(500,500);
         frame.setBackground(Color.WHITE);
         frame.pack();
-       frame.setVisible(true);    
+	frame.setLocationRelativeTo(null); //Center frame
+	frame.setVisible(true);    
         
 		
     }//end setUpHomeScreen

@@ -41,6 +41,7 @@ public class FirstPlayer extends JFrame {
         getContentPane().add( buttonPanel, BorderLayout.SOUTH );
         setDefaultCloseOperation( EXIT_ON_CLOSE );
         setSize(600, 300);
+	setLocationRelativeTo(null); //Center frame
         setVisible(true);
     }
 
@@ -49,25 +50,28 @@ public class FirstPlayer extends JFrame {
         public void actionPerformed(ActionEvent e) {
             String selected = group.getSelection().getActionCommand();
             
+	    new SecondPlayer(selected);
+	    dispose();
+	    /*
             //make Squirtle image for first player
             if (selected == "Squirtle"){
-                new NoSquirtle();
+		//new NoSquirtle();
 		dispose();
             }
             
             //make bulbasaur image for first player
             if (selected == "Bulbasaur"){
-                new NoBulbasaur();
+                //new NoBulbasaur();
                 dispose();
             }
             
             //make Charmander image for first player
             if (selected == "Charmander"){
-                new NoCharmander();
+                //new NoCharmander();
                 dispose();
             }
+	    */
 
-      
        }
     }
 
