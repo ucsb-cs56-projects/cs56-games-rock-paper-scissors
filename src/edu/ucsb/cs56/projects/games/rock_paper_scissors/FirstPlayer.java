@@ -51,19 +51,19 @@ public class FirstPlayer extends JFrame {
             
             //make Squirtle image for first player
             if (selected == "Squirtle"){
-                new NoSquirtle();
-		dispose();
+                new SecondPlayer(1);
+		        dispose();
             }
             
             //make bulbasaur image for first player
             if (selected == "Bulbasaur"){
-                new NoBulbasaur();
+                new SecondPlayer(0);
                 dispose();
             }
             
             //make Charmander image for first player
             if (selected == "Charmander"){
-                new NoCharmander();
+                new SecondPlayer(2);
                 dispose();
             }
 
