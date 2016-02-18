@@ -17,8 +17,10 @@ public class SecondPlayer extends JFrame{
     private ButtonGroup group;
     String first;
     String second;
+    String third;
     JRadioButton firstPokemon;
     JRadioButton secondPokemon;
+    JRadioButton thirdPokemon;
     JButton pickFirst;
     JPanel buttonPanel;
 
@@ -33,6 +35,8 @@ public class SecondPlayer extends JFrame{
             firstPokemon.setActionCommand("Charmander");
             secondPokemon = new JRadioButton("Squirtle");
             secondPokemon.setActionCommand("Squirtle");
+	    thirdPokemon = new JRadioButton("Pikachu");
+            thirdPokemon.setActionCommand("Pikachu");
         }
         // if squirtle was selected first
         else if (x == 1) {
@@ -40,19 +44,34 @@ public class SecondPlayer extends JFrame{
             firstPokemon.setActionCommand("Bulbasaur");
             secondPokemon = new JRadioButton("Charmander");
             secondPokemon.setActionCommand("Charmander");
+	    thirdPokemon = new JRadioButton("Pikachu");
+            thirdPokemon.setActionCommand("Pikachu");
         }
         // if charmander was selected first
-        else {
+        else if (x == 2) {
             firstPokemon = new JRadioButton("Bulbasaur", true);
             firstPokemon.setActionCommand("Bulbasaur");
             secondPokemon = new JRadioButton("Squirtle");
             secondPokemon.setActionCommand("Squirtle");
+	    thirdPokemon = new JRadioButton("Pikachu");
+            thirdPokemon.setActionCommand("Pikachu");
         }
+
+	else {
+            firstPokemon = new JRadioButton("Bulbasaur", true);
+            firstPokemon.setActionCommand("Bulbasaur");
+            secondPokemon = new JRadioButton("Squirtle");
+            secondPokemon.setActionCommand("Squirtle");
+	    	    thirdPokemon = new JRadioButton("Charmander");
+            thirdPokemon.setActionCommand("Charmander");
+	}
 
         group.add(firstPokemon);
         group.add(secondPokemon);
+	group.add(thirdPokemon);
         radioPanel.add(firstPokemon);
         radioPanel.add(secondPokemon);
+	radioPanel.add(thirdPokemon);
         getContentPane().add( radioPanel, BorderLayout.CENTER );
         buttonPanel = new JPanel();
         pickFirst = new JButton("I choose you!");
@@ -80,6 +99,13 @@ public class SecondPlayer extends JFrame{
                     new TicTacToe(first, second, "Charmander", "Squirtle");
                     dispose();
                 }
+		
+		if (selected == "Squirtle" && x == 3){
+                    ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
+                    ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
+                    new TicTacToe(first, second, "Pikachu", "Squirtle");
+                    dispose();
+                }
 
                 if (selected == "Bulbasaur" && x == 1){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
@@ -94,7 +120,13 @@ public class SecondPlayer extends JFrame{
                     new TicTacToe(first, second, "Charmander", "Bulbasaur");
                     dispose();
                 }
-
+		
+                if (selected == "Bulbasaur" && x == 3){
+                    ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
+                    ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
+                    new TicTacToe(first, second, "Pikachu", "Bulbasaur");
+                    dispose();
+                }
                 if (selected == "Charmander" && x == 0){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
@@ -109,6 +141,33 @@ public class SecondPlayer extends JFrame{
                     dispose();
                 }
 
+		if (selected == "Charmander" && x == 3){
+                    ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
+                    ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
+                    new TicTacToe(first, second, "Pikachu", "Charmander");
+                    dispose();
+                }
+
+		if (selected == "Pikachu" && x == 0){
+                    ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
+                    ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
+                    new TicTacToe(first, second, "Bulbasaur", "Pikachu");
+                    dispose();
+                }
+
+                if (selected == "Pikachu" && x == 1){
+                    ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
+                    ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
+                    new TicTacToe(first, second, "Squirtle", "Pikachu");
+                    dispose();
+                }
+
+		if (selected == "Pikachu" && x == 2){
+                    ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
+                    ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
+                    new TicTacToe(first, second, "Charmander", "Pikachu");
+                    dispose();
+                }
             }
         });
     }

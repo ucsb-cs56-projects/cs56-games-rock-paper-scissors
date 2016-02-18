@@ -24,15 +24,23 @@ public class FirstPlayer extends JFrame {
         JRadioButton charmander = new JRadioButton("Charmander", true );
         JRadioButton bulbasaur = new JRadioButton("Bulbasaur");
         JRadioButton squirtle = new JRadioButton("Squirtle");
+	//	JRadioButton eevee = new JRadioButton("Eevee");
+	JRadioButton pik = new JRadioButton("Pikachu");
         charmander.setActionCommand("Charmander");
         bulbasaur.setActionCommand("Bulbasaur");
         squirtle.setActionCommand("Squirtle");
+	//	eevee.setActionCommand("Eevee");
+	pik.setActionCommand("Pikachu");
         group.add(charmander);
         group.add(bulbasaur);
         group.add(squirtle);
+	//	group.add(eevee);
+	group.add(pik);
         radioPanel.add(charmander);
         radioPanel.add(bulbasaur);
         radioPanel.add(squirtle);
+	//	radioPanel.add(eevee);
+	radioPanel.add(pik);
         getContentPane().add( radioPanel, BorderLayout.CENTER );
         JPanel buttonPanel = new JPanel();
         JButton pickFirst = new JButton("I choose you!");
@@ -66,8 +74,19 @@ public class FirstPlayer extends JFrame {
                 new SecondPlayer(2);
                 dispose();
             }
+	    /*        //make bulbasaur image for first player
+            if (selected == "Eevee"){
+                new SecondPlayer(3);
+                dispose();
+		}*/
+            
+            //make Charmander image for first player
+            if (selected == "Pikachu"){
+                new SecondPlayer(3);
+                dispose();
+            }
 
-      
+	    
        }
     }
 
