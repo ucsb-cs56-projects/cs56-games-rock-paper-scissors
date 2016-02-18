@@ -37,13 +37,16 @@ public class GameGUI extends JPanel{
     JButton paper = new JButton("Bulbasaur");
     JButton changeGame = new JButton ("Go back to Game Selection");
     
+    
 
     JTextField played = new JTextField(10);
     JTextField win = new JTextField(10);
     JTextField lose = new JTextField(10);
     JTextField tie = new JTextField(10);
     JTextArea text = new JTextArea(20, 30);
+    JTextArea key = new JTextArea(10, 10);
     JScrollPane scroll = new JScrollPane(text);
+    JScrollPane kscroll = new JScrollPane(key);
     Player player = new Player();
     Computer computer = new Computer();
     Game game = new Game();
@@ -51,14 +54,31 @@ public class GameGUI extends JPanel{
     int winner;
     int games=0;
 	JLabel picLabel;
-    JLabel label1, label2, label3, label4, label5, label6;
+    JLabel label0, label1, label2, label3, label4, label5, label6;
     public void setUpHomeScreen(){
 		
 		
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();  
-		
+
+	gc.gridx = 0;
+	gc.gridy = 0;
+	gc.insets = new Insets(20,20,0,0);
+        key.setEditable(false);
+        kscroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        kscroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        kscroll.setPreferredSize(new Dimension(200,150));
+	key.setLineWrap(true);
+	key.append("This is your average rock- \npaper-scissors game, BUT \nplayed with your favorite \nPokemon characters! \n");
+	key.append("KEY: \n");
+	key.append("     Charmander = Rock \n");
+	key.append("     Bulbasaur = Paper \n");
+	key.append("     Squirtle = Scissors \n");
+	key.append("\n");
+	key.append("This game is played against the computer. Click on your \nfavorite Pokemon to see if \nhe can defeat the opponent.");
+        frame.add(kscroll, gc);
+	
 		gc.gridx = 0;
 		gc.gridy = 1;
 		//String path1 = "/Users/edwardgonzalez/Desktop/CHOICE/src/rps/images/charmander.jpg";
@@ -70,6 +90,11 @@ public class GameGUI extends JPanel{
 			java.net.URL path1 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/charmander.jpg");
 			java.net.URL path2 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/squirtle.jpg");
 			java.net.URL path3 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/bulbasaur.jpg");
+
+
+
+			
+			//	gc.insets = new Insets(170,0,0,0);
 			
 			ImageIcon image = new ImageIcon(path1);
 			label1 = new JLabel(" ", image, JLabel.LEFT);
@@ -85,6 +110,8 @@ public class GameGUI extends JPanel{
 			label3 = new JLabel(" ", image3, JLabel.LEFT);
 			frame.add(label3,gc);
 			label3.setVisible(false);
+
+			//	gc.insets = new Insets(170,0,0,0);
 			
 			gc.gridx = 3;
 			gc.gridy = 1;
@@ -162,7 +189,7 @@ public class GameGUI extends JPanel{
         gc.gridy=6;
         tie.setEditable(false);
         frame.add(tie, gc);
-        frame.setSize(500,500);
+        frame.setSize(500,800);
         frame.setBackground(Color.WHITE);
         frame.pack();
        frame.setVisible(true);    
