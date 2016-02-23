@@ -23,10 +23,14 @@ public class SecondPlayer extends JFrame{
     JRadioButton thirdPokemon;
     JButton pickFirst;
     JPanel buttonPanel;
+    String player1name;
+    String player2name;
 
-    public SecondPlayer(final int x) {
-        super("Pick your Pokemon Gary!");
+    public SecondPlayer(final int x, String s, String t) {
+        super("Pick your Pokemon " + t + "!");
         JPanel radioPanel = new JPanel();
+	player1name = s;
+	player2name = t;
         radioPanel.setLayout( new GridLayout(1, 4) );
         group = new ButtonGroup();
         // if bulbasaur was selected first
@@ -89,83 +93,83 @@ public class SecondPlayer extends JFrame{
                 if (selected == "Squirtle" && x == 0){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
-                    new TicTacToe(first, second, "Bulbasaur", "Squirtle");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
 
                 if (selected == "Squirtle" && x == 2){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
-                    new TicTacToe(first, second, "Charmander", "Squirtle");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
 		
 		if (selected == "Squirtle" && x == 3){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
-                    new TicTacToe(first, second, "Pikachu", "Squirtle");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
 
                 if (selected == "Bulbasaur" && x == 1){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
-                    new TicTacToe(first, second, "Squirtle", "Bulbasaur");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
 
                 if (selected == "Bulbasaur" && x == 2){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
-                    new TicTacToe(first, second, "Charmander", "Bulbasaur");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
 		
                 if (selected == "Bulbasaur" && x == 3){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
-                    new TicTacToe(first, second, "Pikachu", "Bulbasaur");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
                 if (selected == "Charmander" && x == 0){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
-                    new TicTacToe(first, second, "Bulbasaur", "Charmander");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
 
                 if (selected == "Charmander" && x == 1){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
-                    new TicTacToe(first, second, "Squirtle", "Charmander");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
 
 		if (selected == "Charmander" && x == 3){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
-                    new TicTacToe(first, second, "Pikachu", "Charmander");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
 
 		if (selected == "Pikachu" && x == 0){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
-                    new TicTacToe(first, second, "Bulbasaur", "Pikachu");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
 
                 if (selected == "Pikachu" && x == 1){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
-                    new TicTacToe(first, second, "Squirtle", "Pikachu");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
 
 		if (selected == "Pikachu" && x == 2){
                     ImageIcon first = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
                     ImageIcon second = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
-                    new TicTacToe(first, second, "Charmander", "Pikachu");
+                    new TicTacToe(first, second, player1name, player2name);
                     dispose();
                 }
             }

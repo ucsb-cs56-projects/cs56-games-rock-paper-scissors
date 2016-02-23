@@ -34,6 +34,7 @@ public class TicTacToe extends JFrame{
 
 
 	public TicTacToe(ImageIcon first, ImageIcon second, String firstName, String secondName){
+	    super("It's " + firstName + "'s turn!");
             this.image1 = first;
             this.image2 = second;
             this.name1 = firstName;
@@ -122,6 +123,7 @@ public class TicTacToe extends JFrame{
                             pok1.play();
                             button[i].setEnabled(false);
                             isSet[i] = 1;
+			    this.setTitle("It's " + name2 + "'s turn!");
 			}
                     else{
 			            button[i].setIcon(image2);
@@ -129,6 +131,7 @@ public class TicTacToe extends JFrame{
                         pok2.play();
                         button[i].setEnabled(false);
 			            isSet[i] = 2;
+				    this.setTitle("It's " + name1 + "'s turn!");  
 			}
                     }
                 }

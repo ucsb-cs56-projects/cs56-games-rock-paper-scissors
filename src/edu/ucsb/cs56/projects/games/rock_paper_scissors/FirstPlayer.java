@@ -15,9 +15,12 @@ import java.io.*;
 public class FirstPlayer extends JFrame {
     
     private ButtonGroup group;
+    private String name;
     
-    public FirstPlayer() {
-        super("Pick your Pokemon Ash!");
+    public FirstPlayer(String s) {
+
+        super("Pick your Pokemon " + s + "!");
+	name = s;
         JPanel radioPanel = new JPanel();
         radioPanel.setLayout( new GridLayout(1, 4) );
         group = new ButtonGroup();
@@ -59,30 +62,25 @@ public class FirstPlayer extends JFrame {
             
             //make Squirtle image for first player
             if (selected == "Squirtle"){
-                new SecondPlayer(1);
+                new PlayerName(2, 1, name);
 		        dispose();
             }
             
             //make bulbasaur image for first player
             if (selected == "Bulbasaur"){
-                new SecondPlayer(0);
+                new PlayerName(2, 0, name);
                 dispose();
             }
             
             //make Charmander image for first player
             if (selected == "Charmander"){
-                new SecondPlayer(2);
+                new PlayerName(2, 2, name);
                 dispose();
             }
-	    /*        //make bulbasaur image for first player
-            if (selected == "Eevee"){
-                new SecondPlayer(3);
-                dispose();
-		}*/
             
-            //make Charmander image for first player
+            //make Pikachu image for first player
             if (selected == "Pikachu"){
-                new SecondPlayer(3);
+                new PlayerName(2, 3, name);
                 dispose();
             }
 

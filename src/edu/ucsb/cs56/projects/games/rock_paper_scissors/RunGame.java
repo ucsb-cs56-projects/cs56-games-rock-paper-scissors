@@ -51,7 +51,7 @@ public class RunGame extends JFrame {
         public void actionPerformed( ActionEvent e ) {
             String selected = group.getSelection().getActionCommand();
             if ( selected == "Tic Tac Toe" ){
-                  new FirstPlayer();
+                  new PlayerName(1);
         dispose();
             }
             if ( selected == "Rock Paper Scissors" ){
