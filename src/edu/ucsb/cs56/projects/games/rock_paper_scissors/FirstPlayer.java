@@ -24,7 +24,7 @@ public class FirstPlayer extends JFrame {
 	name = s;
 	opponent=c;
         JPanel radioPanel = new JPanel();
-        radioPanel.setLayout( new GridLayout(1, 4) );
+        radioPanel.setLayout( new GridLayout(2, 4) );
         group = new ButtonGroup();
         JRadioButton charmander = new JRadioButton("Charmander", true );
         JRadioButton bulbasaur = new JRadioButton("Bulbasaur");
@@ -46,6 +46,20 @@ public class FirstPlayer extends JFrame {
         radioPanel.add(squirtle);
 	//	radioPanel.add(eevee);
 	radioPanel.add(pik);
+
+	JLabel charmanderp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg"));
+	radioPanel.add(charmanderp);
+
+	JLabel bulbasaurp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg"));
+	radioPanel.add(bulbasaurp);
+
+	JLabel squirtlep = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg"));
+	radioPanel.add(squirtlep);
+
+	JLabel pikachup = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg"));
+	radioPanel.add(pikachup);
+
+	
         getContentPane().add( radioPanel, BorderLayout.CENTER );
         JPanel buttonPanel = new JPanel();
         JButton pickFirst = new JButton("I choose you!");
