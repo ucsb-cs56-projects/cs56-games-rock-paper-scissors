@@ -20,7 +20,7 @@ public class TicTacToe extends JFrame{
 
     JPanel panel;
     JButton[] button;
-    JLabel[] label;
+    JLabel label;
     int count = 0;
     int sign = 0;
     int [] isSet = new int[9];
@@ -34,7 +34,10 @@ public class TicTacToe extends JFrame{
 
 
 	public TicTacToe(ImageIcon first, ImageIcon second, String firstName, String secondName){
-	    super("It's " + firstName + "'s turn!");
+	    //super("It's " + firstName + "'s turn!");
+
+	    label = new JLabel("It's " + firstName + "'s turn!");///////////
+	    label.setHorizontalAlignment(SwingConstants.CENTER);
             this.image1 = first;
             this.image2 = second;
             this.name1 = firstName;
@@ -53,6 +56,7 @@ public class TicTacToe extends JFrame{
             gameChange.setPreferredSize( new Dimension(50,100));
             gameChange.addActionListener ( new ChangeGameListener() );	
             this.add( gameChange, BorderLayout.SOUTH);
+	    this.add( label, BorderLayout.NORTH);/////////////
             this.setSize(600,600);
             this.setDefaultCloseOperation(EXIT_ON_CLOSE);
             this.setVisible(true);
@@ -123,7 +127,7 @@ public class TicTacToe extends JFrame{
                             pok1.play();
                             button[i].setEnabled(false);
                             isSet[i] = 1;
-			    this.setTitle("It's " + name2 + "'s turn!");
+			    label.setText("It's " + name2 + "'s turn!");
 			}
                     else{
 			            button[i].setIcon(image2);
@@ -131,7 +135,7 @@ public class TicTacToe extends JFrame{
                         pok2.play();
                         button[i].setEnabled(false);
 			            isSet[i] = 2;
-				    this.setTitle("It's " + name1 + "'s turn!");  
+				    label.setText("It's " + name1 + "'s turn!");  
 			}
                     }
                 }
