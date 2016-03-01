@@ -20,12 +20,14 @@ public class PlayerName extends JFrame {
     JPanel panel;
     JLabel label;
     JTextField field;
+    char opponent;
     
-    public PlayerName(int i) {
+    public PlayerName(int i, char c) {
 
 	
 	super("Choose your player name");
 		player = i;
+		opponent=c;
         panel = new JPanel();
 	label = new JLabel("Player Name: ");
         field = new JTextField("Enter name", 20);
@@ -61,7 +63,7 @@ public class PlayerName extends JFrame {
 	    //  field.setText("");
 	    String name = field.getText();
 	    if (player == 1)
-		new FirstPlayer(name);
+		new FirstPlayer(name, opponent);
 	    else
 		new SecondPlayer(character, player1name, name);
 	    dispose();

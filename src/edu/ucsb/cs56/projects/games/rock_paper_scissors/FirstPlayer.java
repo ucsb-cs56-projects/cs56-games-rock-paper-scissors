@@ -16,11 +16,13 @@ public class FirstPlayer extends JFrame {
     
     private ButtonGroup group;
     private String name;
+    char opponent;
     
-    public FirstPlayer(String s) {
+    public FirstPlayer(String s, char c) {
 
         super("Pick your Pokemon " + s + "!");
 	name = s;
+	opponent=c;
         JPanel radioPanel = new JPanel();
         radioPanel.setLayout( new GridLayout(1, 4) );
         group = new ButtonGroup();
@@ -59,7 +61,32 @@ public class FirstPlayer extends JFrame {
     private class PickGameListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String selected = group.getSelection().getActionCommand();
-            
+
+	    if (opponent=='c') {
+		ImageIcon first = null;
+		ImageIcon second = null;
+		if (selected == "Squirtle") {
+		    first = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
+		    second = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
+		}
+		if (selected == "Bulbasaur") {
+		    first = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
+		    second = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
+		}
+		if (selected == "Charmander") {
+		    first = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
+		   second = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
+		}
+		if (selected == "Pikachu") {
+		    first = new ImageIcon ("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg");
+		    second = new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
+		}
+		
+		new TicTacToe(first,second,name, "Computer");
+		dispose();
+		
+	    }
+	    else {
             //make Squirtle image for first player
             if (selected == "Squirtle"){
                 new PlayerName(2, 1, name);
@@ -84,7 +111,7 @@ public class FirstPlayer extends JFrame {
                 dispose();
             }
 
-	    
+	    }
        }
     }
 

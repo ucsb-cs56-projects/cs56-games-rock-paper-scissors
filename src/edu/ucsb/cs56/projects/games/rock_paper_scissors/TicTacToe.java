@@ -117,34 +117,68 @@ public class TicTacToe extends JFrame{
         else
             pok2 = java.applet.Applet.newAudioClip(charm);
 
-
-
-		for (int i = 0; i <= 8; i++){
-                    if (button[i].equals(e.getSource())){
-                        if (sign%2 == 0){
-                            button[i].setIcon(image1);
-                            button[i].setDisabledIcon(image1);
-                            pok1.play();
-                            button[i].setEnabled(false);
-                            isSet[i] = 1;
-			    label.setText("It's " + name2 + "'s turn!");
+	if (name2=="Computer") {
+	    for (int i = 0; i <= 8; i++){
+		System.out.println(i);
+		if (button[i].equals(e.getSource())){
+		    System.out.println("about to set image");
+			button[i].setIcon(image1);
+			button[i].setDisabledIcon(image1);
+			System.out.println("setimage");
+			pok1.play();
+			button[i].setEnabled(false);
+			isSet[i] = 1;
+	      
+	        
+			if (count <5) {
+			int randomSpot = (int) (Math.random()*9);
+			while (isSet[randomSpot]!=0) {
+			    randomSpot = (int) (Math.random()*9);
 			}
-                    else{
-			            button[i].setIcon(image2);
-                        button[i].setDisabledIcon(image2);
-                        pok2.play();
-                        button[i].setEnabled(false);
-			            isSet[i] = 2;
-				    label.setText("It's " + name1 + "'s turn!");  
+			System.out.println("setcompname");
+			
+			button[randomSpot].setIcon(image2);
+			button[randomSpot].setDisabledIcon(image2);
+			pok2.play();
+			button[randomSpot].setEnabled(false);
+			isSet[randomSpot]=2;
+			label.setText("It's " + name1 + "'s turn!");
 			}
-                    }
-                }
+		}
+	    }
+	    System.out.println("about to check winner");
+	    checkWinner();
+	    	    System.out.println("checked winner");
+	}
+	else {
+
+	    for (int i = 0; i <= 8; i++){
+		if (button[i].equals(e.getSource())){
+		    if (sign%2 == 0){
+			button[i].setIcon(image1);
+			button[i].setDisabledIcon(image1);
+			pok1.play();
+			button[i].setEnabled(false);
+			isSet[i] = 1;
+			label.setText("It's " + name2 + "'s turn!");
+		    }
+		    else{
+			button[i].setIcon(image2);
+			button[i].setDisabledIcon(image2);
+			pok2.play();
+			button[i].setEnabled(false);
+			isSet[i] = 2;
+			label.setText("It's " + name1 + "'s turn!");  
+		    }
+		}
+	    }
 	    sign++;
-        checkWinner();
-
-        if (count >= 9) {
-		JOptionPane.showMessageDialog(null, "Tie!");
-		for (int j = 0; j <= 8; j++){
+	    checkWinner();
+	}
+	
+        if ( (count >= 9 && name2!="Computer") || (name2=="Computer"&&count>=5)) {
+	    JOptionPane.showMessageDialog(null, "Tie!");
+	    for (int j = 0; j <= 8; j++){
                     button[j].setText("");
                     button[j].setEnabled(true);
                     isSet[j] = 0;
