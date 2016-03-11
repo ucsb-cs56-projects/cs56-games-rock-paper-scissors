@@ -9,8 +9,8 @@ import java.awt.event.MouseEvent;
 
 /**
  *This class allows the second player to choose their Pokemon depending on what player one selected
- *@author Jordan Nguyen, Brandon Wicka
- *@version for CS56, W15
+ *@author Nicole Moghaddas and Laura Anthony (previous authors: Jordan Nguyen, Brandon Wicka)
+ *@version for CS56, W16
  */
 public class SecondPlayer extends JFrame{
 
@@ -41,12 +41,12 @@ public class SecondPlayer extends JFrame{
             secondPokemon.setActionCommand("Squirtle");
 	    thirdPokemon = new JRadioButton("Pikachu");
             thirdPokemon.setActionCommand("Pikachu");
-	JLabel charmanderp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg"));
-	radioPanel.add(charmanderp);
-		JLabel squirtlep = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg"));
-	radioPanel.add(squirtlep);
-		JLabel pikachup = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg"));
-	radioPanel.add(pikachup);
+	    JLabel charmanderp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg"));
+	    radioPanel.add(charmanderp);
+	    JLabel squirtlep = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg"));
+	    radioPanel.add(squirtlep);
+	    JLabel pikachup = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg"));
+	    radioPanel.add(pikachup);
 
 	  
         }
@@ -58,12 +58,12 @@ public class SecondPlayer extends JFrame{
             secondPokemon.setActionCommand("Charmander");
 	    thirdPokemon = new JRadioButton("Pikachu");
             thirdPokemon.setActionCommand("Pikachu");
-	    	JLabel bulbasaurp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg"));
-	radioPanel.add(bulbasaurp);
-		JLabel charmanderp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg"));
-	radioPanel.add(charmanderp);
-		JLabel pikachup = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg"));
-	radioPanel.add(pikachup);
+	    JLabel bulbasaurp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg"));
+	    radioPanel.add(bulbasaurp);
+	    JLabel charmanderp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg"));
+	    radioPanel.add(charmanderp);
+	    JLabel pikachup = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg"));
+	    radioPanel.add(pikachup);
         }
         // if charmander was selected first
         else if (x == 2) {
@@ -73,12 +73,12 @@ public class SecondPlayer extends JFrame{
             secondPokemon.setActionCommand("Squirtle");
 	    thirdPokemon = new JRadioButton("Pikachu");
             thirdPokemon.setActionCommand("Pikachu");
-	    	JLabel bulbasaurp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg"));
-	radioPanel.add(bulbasaurp);
-		JLabel squirtlep = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg"));
-	radioPanel.add(squirtlep);
-		JLabel pikachup = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg"));
-	radioPanel.add(pikachup);
+	    JLabel bulbasaurp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg"));
+	    radioPanel.add(bulbasaurp);
+	    JLabel squirtlep = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg"));
+	    radioPanel.add(squirtlep);
+	    JLabel pikachup = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg"));
+	    radioPanel.add(pikachup);
         }
 
 	else {
@@ -87,7 +87,7 @@ public class SecondPlayer extends JFrame{
 	    
             secondPokemon = new JRadioButton("Squirtle");
             secondPokemon.setActionCommand("Squirtle");
-	    	    thirdPokemon = new JRadioButton("Charmander");
+	    thirdPokemon = new JRadioButton("Charmander");
             thirdPokemon.setActionCommand("Charmander");
 	    JLabel bulbasaurp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg"));
 	    radioPanel.add(bulbasaurp);

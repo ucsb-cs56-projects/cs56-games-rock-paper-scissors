@@ -11,8 +11,8 @@ import java.net.URL;
 /**
  * Class that creates the Tic Tac Toe game.
  *
- * @author Lesley Khuu
- * @version for CS56, W14
+ * @author Laura Anthony and Nicole Moghaddas (previous author: Lesley Khuu)
+ * @version for CS56, W16
  */
 
 
@@ -34,9 +34,7 @@ public class TicTacToe extends JFrame{
 
 
 	public TicTacToe(ImageIcon first, ImageIcon second, String firstName, String secondName){
-	    //super("It's " + firstName + "'s turn!");
-
-	    label = new JLabel("It's " + firstName + "'s turn!");///////////
+	    label = new JLabel("It's " + firstName + "'s turn!");
 	    label.setHorizontalAlignment(SwingConstants.CENTER);
             this.image1 = first;
             this.image2 = second;
@@ -56,7 +54,7 @@ public class TicTacToe extends JFrame{
             gameChange.setPreferredSize( new Dimension(50,100));
             gameChange.addActionListener ( new ChangeGameListener() );	
             this.add( gameChange, BorderLayout.SOUTH);
-	    this.add( label, BorderLayout.NORTH);/////////////
+	    this.add( label, BorderLayout.NORTH);
             this.setSize(600,600);
             this.setDefaultCloseOperation(EXIT_ON_CLOSE);
             this.setVisible(true);
@@ -119,12 +117,9 @@ public class TicTacToe extends JFrame{
 
 	if (name2=="Computer") {
 	    for (int i = 0; i <= 8; i++){
-		System.out.println(i);
 		if (button[i].equals(e.getSource())){
-		    System.out.println("about to set image");
 			button[i].setIcon(image1);
 			button[i].setDisabledIcon(image1);
-			System.out.println("setimage");
 			pok1.play();
 			button[i].setEnabled(false);
 			isSet[i] = 1;
@@ -135,8 +130,6 @@ public class TicTacToe extends JFrame{
 			while (isSet[randomSpot]!=0) {
 			    randomSpot = (int) (Math.random()*9);
 			}
-			System.out.println("setcompname");
-			
 			button[randomSpot].setIcon(image2);
 			button[randomSpot].setDisabledIcon(image2);
 			pok2.play();
@@ -146,9 +139,7 @@ public class TicTacToe extends JFrame{
 			}
 		}
 	    }
-	    System.out.println("about to check winner");
 	    checkWinner();
-	    	    System.out.println("checked winner");
 	}
 	else {
 

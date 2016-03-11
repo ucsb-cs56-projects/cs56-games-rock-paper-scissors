@@ -8,8 +8,8 @@ import java.io.*;
 
 /**
 *This class allows the first player to choose their Pokemon. It creates a window that gives the first player the options.
-*@author Lesley Khuu
-*@version for CS56, W14
+*@author Lesley Khuu (updated Laura Anthony and Nicole Moghaddas
+*@version for CS56, W16
 */
 
 public class FirstPlayer extends JFrame {
@@ -29,22 +29,21 @@ public class FirstPlayer extends JFrame {
         JRadioButton charmander = new JRadioButton("Charmander", true );
         JRadioButton bulbasaur = new JRadioButton("Bulbasaur");
         JRadioButton squirtle = new JRadioButton("Squirtle");
-	//	JRadioButton eevee = new JRadioButton("Eevee");
 	JRadioButton pik = new JRadioButton("Pikachu");
+	
         charmander.setActionCommand("Charmander");
         bulbasaur.setActionCommand("Bulbasaur");
         squirtle.setActionCommand("Squirtle");
-	//	eevee.setActionCommand("Eevee");
 	pik.setActionCommand("Pikachu");
+	
         group.add(charmander);
         group.add(bulbasaur);
         group.add(squirtle);
-	//	group.add(eevee);
 	group.add(pik);
+	
         radioPanel.add(charmander);
         radioPanel.add(bulbasaur);
         radioPanel.add(squirtle);
-	//	radioPanel.add(eevee);
 	radioPanel.add(pik);
 
 	JLabel charmanderp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg"));
@@ -58,7 +57,6 @@ public class FirstPlayer extends JFrame {
 
 	JLabel pikachup = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/pikachu.jpg"));
 	radioPanel.add(pikachup);
-
 	
         getContentPane().add( radioPanel, BorderLayout.CENTER );
         JPanel buttonPanel = new JPanel();
@@ -101,34 +99,30 @@ public class FirstPlayer extends JFrame {
 		
 	    }
 	    else {
-            //make Squirtle image for first player
-            if (selected == "Squirtle"){
-                new PlayerName(2, 1, name);
-		        dispose();
-            }
-            
-            //make bulbasaur image for first player
-            if (selected == "Bulbasaur"){
-                new PlayerName(2, 0, name);
-                dispose();
-            }
-            
-            //make Charmander image for first player
-            if (selected == "Charmander"){
-                new PlayerName(2, 2, name);
-                dispose();
-            }
-            
-            //make Pikachu image for first player
-            if (selected == "Pikachu"){
-                new PlayerName(2, 3, name);
-                dispose();
-            }
-
+		//make Squirtle image for first player
+		if (selected == "Squirtle"){
+		    new PlayerName(2, 1, name);
+		    dispose();
+		}
+		
+		//make bulbasaur image for first player
+		if (selected == "Bulbasaur"){
+		    new PlayerName(2, 0, name);
+		    dispose();
+		}
+		
+		//make Charmander image for first player
+		if (selected == "Charmander"){
+		    new PlayerName(2, 2, name);
+		    dispose();
+		}
+		
+		//make Pikachu image for first player
+		if (selected == "Pikachu"){
+		    new PlayerName(2, 3, name);
+		    dispose();
+		}
 	    }
-       }
+	}
     }
-
-
-
 }

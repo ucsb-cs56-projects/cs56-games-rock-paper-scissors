@@ -21,7 +21,7 @@ import java.net.*;
  * This class creates the GUI for the game.  It allows you to select your options for moves, as well as tell you how many games you've played, wont, lost, and tied.  There are also animations that appears on the screen when the player and the computer have chosen their moves.
  *
  *
- * @author Lesley Khuu (previous authors: Gerard Gonzalez and Connor Tinsely (Original:Dennis Huynh and Aki Stankoski)) 
+ * @author Nicole Moghaddas and Laura Anthony previous authors: (Lesley Khuu (previous authors: Gerard Gonzalez and Connor Tinsely (Original:Dennis Huynh and Aki Stankoski)))
  */
 
 public class GameGUI extends JPanel {
@@ -36,8 +36,6 @@ public class GameGUI extends JPanel {
     JButton scissors = new JButton("Squirtle");
     JButton paper = new JButton("Bulbasaur");
     JButton changeGame = new JButton ("Go back to Game Selection");
-    
-    
 
     JTextField played = new JTextField(10);
     JTextField win = new JTextField(10);
@@ -53,7 +51,7 @@ public class GameGUI extends JPanel {
     String move;
     int winner;
     int games=0;
-	JLabel picLabel;
+    JLabel picLabel;
     JLabel label0, label1, label2, label3, label4, label5, label6;
 
     public void setUpHomeScreen(){
@@ -91,27 +89,21 @@ public class GameGUI extends JPanel {
 			java.net.URL path2 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/squirtle.jpg");
 			java.net.URL path3 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/bulbasaur.jpg");
 
-
-
 			
-			//	gc.insets = new Insets(170,0,0,0);
-			
-			ImageIcon image = new ImageIcon(path1);
+			ImageIcon image = new ImageIcon(path1); //charmander
 			label1 = new JLabel(" ", image, JLabel.LEFT);
 			frame.add(label1,gc);
 			label1.setVisible(false);		
 			
-			ImageIcon image2 = new ImageIcon(path2);
+			ImageIcon image2 = new ImageIcon(path2); // squirtle
 			label2 = new JLabel(" ", image2, JLabel.LEFT);
 			frame.add(label2,gc);
 			label2.setVisible(false);
 			
-			ImageIcon image3 = new ImageIcon(path3);
+			ImageIcon image3 = new ImageIcon(path3); //bulb
 			label3 = new JLabel(" ", image3, JLabel.LEFT);
 			frame.add(label3,gc);
 			label3.setVisible(false);
-
-			//	gc.insets = new Insets(170,0,0,0);
 			
 			gc.gridx = 3;
 			gc.gridy = 1;
@@ -127,9 +119,6 @@ public class GameGUI extends JPanel {
 			label6 = new JLabel(" ", image3, JLabel.LEFT);
 			frame.add(label6,gc);
 			label6.setVisible(false);
-
-			
-			
 		}
 		catch (IOException ioe) {
 			//log the error
@@ -235,38 +224,6 @@ public class GameGUI extends JPanel {
             text.append("Computer played: " + move + "\n");
                 if(winner==1){
             		 text.append("You WIN!\n\n");
-			 // label1.setVisible(false);
-			 //	 gc.fill = GridBagConstraints.BOTH;
-			 // label1.setVisible(true);
-			 // try {
-			 //	      for (int i=0; i<50; i++) {
-			 //label1.setVisible(false);
-			 /*	 label1.setOpaque(true);
-				 label1.setBackground(Color.BLUE);*/
-			     //	        Thread.sleep(500);
-			     // label1.setOpaque(false);
-				 //	   label1.setVisible(true);
-				 //  }
-			     /*
-			      	 } catch (InterruptedException ex) {
-			       System.err.println("Error");
-			      }
-				    */
-			 try {
-			     	Thread.sleep(1000);
-			     java.net.URL path0 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/squirtle.jpg");
-			     ImageIcon image0 = new ImageIcon(path0);
-			 		 label1.setIcon(image0);
-					 			java.net.URL path6 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/bulbasaur.jpg");
-							
-			 ImageIcon image6 = new ImageIcon(path6);
-			 	Thread.sleep(1000);
-			 label1.setIcon(image6);
-			 Thread.sleep(1000);
-			 }
-			 catch (Exception ex) {
-			 }
-	
 		}
                 if(winner==2){
 		    text.append("You LOSE!\n\n");
@@ -367,9 +324,7 @@ public class GameGUI extends JPanel {
 	    }
             text.append("Computer played: " + move + "\n");
 	        if(winner==1){
-            		 text.append("You WIN!\n\n");
-			 
-			 //	 gc.fill = GridBagConstraints.BOTH;
+		    text.append("You WIN!\n\n");
 		}
                 if(winner==2){
             		 text.append("You LOSE!\n\n");

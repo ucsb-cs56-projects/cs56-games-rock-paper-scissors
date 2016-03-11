@@ -7,9 +7,9 @@ import java.io.*;
 
 
 /**
-*This class allows the first player to choose their Pokemon. It creates a window that gives the first player the options.
-*@author Lesley Khuu
-*@version for CS56, W14
+*This class allows the player to choose their opponent (another player or the computer). It creates a window that gives the player the two options.
+*@author Laura Anthony and Nicole Moghaddas
+*@version for CS56, W16
 */
 
 public class ChooseOpponent extends JFrame {
@@ -27,7 +27,6 @@ public class ChooseOpponent extends JFrame {
 
         computer.setActionCommand("Computer");
         person.setActionCommand("Person");
-
 
         group.add(computer);
         group.add(person);
@@ -51,22 +50,15 @@ public class ChooseOpponent extends JFrame {
         public void actionPerformed(ActionEvent e) {
             String selected = group.getSelection().getActionCommand();
             
-            //make Squirtle image for first player
             if (selected == "Computer"){
                 new PlayerName(1,'c');
 		        dispose();
             }
             
-            //make bulbasaur image for first player
             if (selected == "Person"){
                 new PlayerName(1,'p');
                 dispose();
-            }
-
-	    
-       }
+            } 
+	}
     }
-
-
-
 }
