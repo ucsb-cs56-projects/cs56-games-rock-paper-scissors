@@ -11,8 +11,8 @@ import java.net.URL;
 /**
  * Class that creates the Tic Tac Toe game.
  *
- * @author Lesley Khuu
- * @version for CS56, W14
+ * @author Laura Anthony and Nicole Moghaddas (previous author: Lesley Khuu)
+ * @version for CS56, W16
  */
 
 
@@ -20,7 +20,7 @@ public class TicTacToe extends JFrame{
 
     JPanel panel;
     JButton[] button;
-    JLabel[] label;
+    JLabel label;
     int count = 0;
     int sign = 0;
     int [] isSet = new int[9];
@@ -34,6 +34,8 @@ public class TicTacToe extends JFrame{
 
 
 	public TicTacToe(ImageIcon first, ImageIcon second, String firstName, String secondName){
+	    label = new JLabel("It's " + firstName + "'s turn!");
+	    label.setHorizontalAlignment(SwingConstants.CENTER);
             this.image1 = first;
             this.image2 = second;
             this.name1 = firstName;
@@ -52,6 +54,7 @@ public class TicTacToe extends JFrame{
             gameChange.setPreferredSize( new Dimension(50,100));
             gameChange.addActionListener ( new ChangeGameListener() );	
             this.add( gameChange, BorderLayout.SOUTH);
+	    this.add( label, BorderLayout.NORTH);
             this.setSize(600,600);
             this.setDefaultCloseOperation(EXIT_ON_CLOSE);
             this.setVisible(true);
@@ -112,32 +115,61 @@ public class TicTacToe extends JFrame{
         else
             pok2 = java.applet.Applet.newAudioClip(charm);
 
-
-
-		for (int i = 0; i <= 8; i++){
-                    if (button[i].equals(e.getSource())){
-                        if (sign%2 == 0){
-                            button[i].setIcon(image1);
-                            button[i].setDisabledIcon(image1);
-                            pok1.play();
-                            button[i].setEnabled(false);
-                            isSet[i] = 1;
+	if (name2=="Computer") {
+	    for (int i = 0; i <= 8; i++){
+		if (button[i].equals(e.getSource())){
+			button[i].setIcon(image1);
+			button[i].setDisabledIcon(image1);
+			pok1.play();
+			button[i].setEnabled(false);
+			isSet[i] = 1;
+	      
+	        
+			if (count <5) {
+			int randomSpot = (int) (Math.random()*9);
+			while (isSet[randomSpot]!=0) {
+			    randomSpot = (int) (Math.random()*9);
 			}
-                    else{
-			            button[i].setIcon(image2);
-                        button[i].setDisabledIcon(image2);
-                        pok2.play();
-                        button[i].setEnabled(false);
-			            isSet[i] = 2;
+			button[randomSpot].setIcon(image2);
+			button[randomSpot].setDisabledIcon(image2);
+			pok2.play();
+			button[randomSpot].setEnabled(false);
+			isSet[randomSpot]=2;
+			label.setText("It's " + name1 + "'s turn!");
 			}
-                    }
-                }
+		}
+	    }
+	    checkWinner();
+	}
+	else {
+
+	    for (int i = 0; i <= 8; i++){
+		if (button[i].equals(e.getSource())){
+		    if (sign%2 == 0){
+			button[i].setIcon(image1);
+			button[i].setDisabledIcon(image1);
+			pok1.play();
+			button[i].setEnabled(false);
+			isSet[i] = 1;
+			label.setText("It's " + name2 + "'s turn!");
+		    }
+		    else{
+			button[i].setIcon(image2);
+			button[i].setDisabledIcon(image2);
+			pok2.play();
+			button[i].setEnabled(false);
+			isSet[i] = 2;
+			label.setText("It's " + name1 + "'s turn!");  
+		    }
+		}
+	    }
 	    sign++;
-        checkWinner();
-
-        if (count >= 9) {
-		JOptionPane.showMessageDialog(null, "Tie!");
-		for (int j = 0; j <= 8; j++){
+	    checkWinner();
+	}
+	
+        if ( (count >= 9 && name2!="Computer") || (name2=="Computer"&&count>=5)) {
+	    JOptionPane.showMessageDialog(null, "Tie!");
+	    for (int j = 0; j <= 8; j++){
                     button[j].setText("");
                     button[j].setEnabled(true);
                     isSet[j] = 0;

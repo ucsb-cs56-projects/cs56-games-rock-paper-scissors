@@ -21,10 +21,10 @@ import java.net.*;
  * This class creates the GUI for the game.  It allows you to select your options for moves, as well as tell you how many games you've played, wont, lost, and tied.  There are also animations that appears on the screen when the player and the computer have chosen their moves.
  *
  *
- * @author Lesley Khuu (previous authors: Gerard Gonzalez and Connor Tinsely (Original:Dennis Huynh and Aki Stankoski)) 
+ * @author Nicole Moghaddas and Laura Anthony previous authors: (Lesley Khuu (previous authors: Gerard Gonzalez and Connor Tinsely (Original:Dennis Huynh and Aki Stankoski)))
  */
 
-public class GameGUI extends JPanel{
+public class GameGUI extends JPanel {
     JFrame frame = new JFrame();
     JPanel thePanel = new JPanel(new GridBagLayout());
     JLabel title = new JLabel("Rock Paper Scissors Game");
@@ -36,52 +36,71 @@ public class GameGUI extends JPanel{
     JButton scissors = new JButton("Squirtle");
     JButton paper = new JButton("Bulbasaur");
     JButton changeGame = new JButton ("Go back to Game Selection");
-    
 
     JTextField played = new JTextField(10);
     JTextField win = new JTextField(10);
     JTextField lose = new JTextField(10);
     JTextField tie = new JTextField(10);
     JTextArea text = new JTextArea(20, 30);
+    JTextArea key = new JTextArea(10, 10);
     JScrollPane scroll = new JScrollPane(text);
+    JScrollPane kscroll = new JScrollPane(key);
     Player player = new Player();
     Computer computer = new Computer();
     Game game = new Game();
     String move;
     int winner;
     int games=0;
-	JLabel picLabel;
-    JLabel label1, label2, label3, label4, label5, label6;
+    JLabel picLabel;
+    JLabel label0, label1, label2, label3, label4, label5, label6;
+
     public void setUpHomeScreen(){
 		
 		
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();  
-		
+
+	gc.gridx = 0;
+	gc.gridy = 0;
+	gc.insets = new Insets(20,20,0,0);
+        key.setEditable(false);
+        kscroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        kscroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        kscroll.setPreferredSize(new Dimension(200,150));
+	key.setLineWrap(true);
+	key.append("This is your average rock- \npaper-scissors game, BUT \nplayed with your favorite \nPokemon characters! \n");
+	key.append("KEY: \n");
+	key.append("     Charmander = Rock \n");
+	key.append("     Bulbasaur = Paper \n");
+	key.append("     Squirtle = Scissors \n");
+	key.append("\n");
+	key.append("This game is played against the computer. Click on your \nfavorite Pokemon to see if \nhe can defeat the opponent.");
+        frame.add(kscroll, gc);
+	
 		gc.gridx = 0;
 		gc.gridy = 1;
 		//String path1 = "/Users/edwardgonzalez/Desktop/CHOICE/src/rps/images/charmander.jpg";
 		//String path2 = "/Users/edwardgonzalez/Desktop/CHOICE/src/rps/images/squirtle.jpg";
 		//String path3 = "/Users/edwardgonzalez/Desktop/CHOICE/src/rps/images/bulbasaur.jpg";
-		
-		
+
 		try {
 			java.net.URL path1 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/charmander.jpg");
 			java.net.URL path2 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/squirtle.jpg");
 			java.net.URL path3 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/bulbasaur.jpg");
+
 			
-			ImageIcon image = new ImageIcon(path1);
+			ImageIcon image = new ImageIcon(path1); //charmander
 			label1 = new JLabel(" ", image, JLabel.LEFT);
 			frame.add(label1,gc);
 			label1.setVisible(false);		
 			
-			ImageIcon image2 = new ImageIcon(path2);
+			ImageIcon image2 = new ImageIcon(path2); // squirtle
 			label2 = new JLabel(" ", image2, JLabel.LEFT);
 			frame.add(label2,gc);
 			label2.setVisible(false);
 			
-			ImageIcon image3 = new ImageIcon(path3);
+			ImageIcon image3 = new ImageIcon(path3); //bulb
 			label3 = new JLabel(" ", image3, JLabel.LEFT);
 			frame.add(label3,gc);
 			label3.setVisible(false);
@@ -100,9 +119,6 @@ public class GameGUI extends JPanel{
 			label6 = new JLabel(" ", image3, JLabel.LEFT);
 			frame.add(label6,gc);
 			label6.setVisible(false);
-
-			
-			
 		}
 		catch (IOException ioe) {
 			//log the error
@@ -162,7 +178,7 @@ public class GameGUI extends JPanel{
         gc.gridy=6;
         tie.setEditable(false);
         frame.add(tie, gc);
-        frame.setSize(500,500);
+        frame.setSize(500,800);
         frame.setBackground(Color.WHITE);
         frame.pack();
        frame.setVisible(true);    
@@ -210,7 +226,7 @@ public class GameGUI extends JPanel{
             		 text.append("You WIN!\n\n");
 		}
                 if(winner==2){
-            		 text.append("You LOSE!\n\n");
+		    text.append("You LOSE!\n\n");
                 }
                 if(winner==3){
             		 text.append("You TIE!\n\n");
@@ -286,29 +302,29 @@ public class GameGUI extends JPanel{
             text.append("   Game: " + (games+1) + "\n");
             text.append("------------------\n");
             text.append("You played: Squirtle \n");
-        	if(computer.getMove()==0){
-				move = "Squirtle";
-				label6.setVisible(false);
-				label4.setVisible(false);
-				label5.setVisible(true);
-				
-			}
-			if(computer.getMove()==1){
-				move = "Charmander";
-				label5.setVisible(false);
-				label6.setVisible(false);
-				label4.setVisible(true);
-				
-			}
-			if(computer.getMove()==2){
-				move = "Bulbasaur";
-				label5.setVisible(false);
-				label4.setVisible(false);
-				label6.setVisible(true);
-			}
+	    if(computer.getMove()==0){
+		move = "Squirtle";
+		label6.setVisible(false);
+		label4.setVisible(false);
+		label5.setVisible(true);
+		
+	    }
+	    if(computer.getMove()==1){
+		move = "Charmander";
+		label5.setVisible(false);
+		label6.setVisible(false);
+		label4.setVisible(true);
+		
+	    }
+	    if(computer.getMove()==2){
+		move = "Bulbasaur";
+		label5.setVisible(false);
+		label4.setVisible(false);
+		label6.setVisible(true);
+	    }
             text.append("Computer played: " + move + "\n");
-                if(winner==1){
-            		 text.append("You WIN!\n\n");
+	        if(winner==1){
+		    text.append("You WIN!\n\n");
 		}
                 if(winner==2){
             		 text.append("You LOSE!\n\n");
@@ -331,7 +347,6 @@ public class GameGUI extends JPanel{
 	    new RunGame();
 	    }
     }
-   
 
 }//end GameGUI
 
