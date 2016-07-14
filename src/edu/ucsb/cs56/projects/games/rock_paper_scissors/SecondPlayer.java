@@ -6,10 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import java.awt.Color;
 /**
  *This class allows the second player to choose their Pokemon depending on what player one selected
- *@author Nicole Moghaddas and Laura Anthony (previous authors: Jordan Nguyen, Brandon Wicka)
+ *@author Giovanni Dominguez and Issac Holguin Previous Authors:Nicole Moghaddas and Laura Anthony (previous authors: Jordan Nguyen, Brandon Wicka)
  *@version for CS56, W16
  */
 public class SecondPlayer extends JFrame{
@@ -37,10 +37,13 @@ public class SecondPlayer extends JFrame{
         if (x == 0) {
             firstPokemon = new JRadioButton("Charmander", true);
             firstPokemon.setActionCommand("Charmander");
+            firstPokemon.setForeground(Color.RED);
             secondPokemon = new JRadioButton("Squirtle");
             secondPokemon.setActionCommand("Squirtle");
+            secondPokemon.setForeground(Color.BLUE);
 	    thirdPokemon = new JRadioButton("Pikachu");
             thirdPokemon.setActionCommand("Pikachu");
+            thirdPokemon.setForeground(Color.YELLOW);
 	    JLabel charmanderp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg"));
 	    radioPanel.add(charmanderp);
 	    JLabel squirtlep = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg"));

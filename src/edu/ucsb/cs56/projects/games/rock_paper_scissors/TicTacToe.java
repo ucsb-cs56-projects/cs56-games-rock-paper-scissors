@@ -100,8 +100,9 @@ public class TicTacToe extends JFrame{
 
                 pok1 = java.applet.Applet.newAudioClip(squirt);
             }
-        else
+        else {
                 pok1 = java.applet.Applet.newAudioClip(charm);
+        }
 
         //load sounds for player 2
         if (name2 == "Bulbasaur") {
