@@ -22,12 +22,17 @@ public class ChooseOpponent extends JFrame {
 
         super("Choose your Opponent!");
         JPanel radioPanel = new JPanel();
+	getContentPane().setBackground(Color.WHITE);
         radioPanel.setLayout( new GridLayout(1, 2) );
 	radioPanel.setOpaque(true);
-	radioPanel.setBackground(Color.BLACK);
+	//radioPanel.setBackground(Color.BLACK);
         group = new ButtonGroup();
         JRadioButton computer = new JRadioButton("Computer", true );
         JRadioButton person = new JRadioButton("Person");
+	computer.setFont(new Font("Courier", Font.BOLD,25));
+	person.setFont(new Font("Courier", Font.BOLD,25));
+	computer.setBackground(Color.BLACK);// RADIO BG CHANGE
+	person.setBackground(Color.BLACK);//
 
         computer.setActionCommand("Computer");
 	computer.setForeground(Color.BLUE);

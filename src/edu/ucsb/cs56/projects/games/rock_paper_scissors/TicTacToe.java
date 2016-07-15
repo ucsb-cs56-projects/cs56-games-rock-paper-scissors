@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.awt.Color;
 
 
 /**
@@ -34,6 +35,7 @@ public class TicTacToe extends JFrame{
 
 
 	public TicTacToe(ImageIcon first, ImageIcon second, String firstName, String secondName){
+	    
 	    label = new JLabel("It's " + firstName + "'s turn!");
 	    label.setHorizontalAlignment(SwingConstants.CENTER);
             this.image1 = first;
