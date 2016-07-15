@@ -2,9 +2,11 @@ package edu.ucsb.cs56.projects.games.rock_paper_scissors;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.JDialog;
 import java.io.*;
 import java.awt.Color;
-
+import java.awt.Window;
+import javax.swing.JOptionPane;
 /**
     A rock paper scissor game that has a command line interface
     as well as a graphical user interface. Game is 1 player.
@@ -45,6 +47,24 @@ public class RunGame extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.BLACK);
         JButton pickGame = new JButton( "Let's Play!" );
+        /*
+
+
+
+        */
+        GridBagConstraints gc = new GridBagConstraints(); 
+        gc.gridx = 2;
+        gc.gridy = 4;
+        gc.gridx = 1;
+        JButton help = new JButton();
+
+        help.setText("HELP");
+        
+        //buttonPanel.pack();
+
+        help.addActionListener(new HelpListener());
+         buttonPanel.add(help, gc);
+        
         pickGame.addActionListener( new PickGameListener() );
         Color customColorGreen = new Color(0,198, 0);
         pickGame.setForeground(customColorGreen);
@@ -76,4 +96,21 @@ public class RunGame extends JFrame {
       
        }
     }
+
+  /*  private class HelpListener implements ActionListener {
+        public void actionPerformed( ActionEvent e ) {
+            String path = JOptionPane.showInputDialog("Enter a path");
+        }
+    }
+*/
+    private class HelpListener implements ActionListener{ //used for help button
+        @Override
+        public void actionPerformed(ActionEvent evt){
+            
+            JOptionPane.showMessageDialog(null, "This is just for a test \n");
+
+        }
+    }
+
+
 }
