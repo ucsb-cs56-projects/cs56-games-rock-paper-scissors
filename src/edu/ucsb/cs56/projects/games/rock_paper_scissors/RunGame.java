@@ -35,7 +35,7 @@ public class RunGame extends JFrame {
         ttt.setActionCommand( "Tic Tac Toe" );
         rps.setActionCommand( "Rock Paper Scissors" );
         ttt.setForeground(Color.RED);
-        rps.setForeground(Color.YELLOW);
+        rps.setForeground(Color.BLUE);//   HGHFHFH
         group.add( ttt );
         group.add( rps );
         radioPanel.add( ttt );

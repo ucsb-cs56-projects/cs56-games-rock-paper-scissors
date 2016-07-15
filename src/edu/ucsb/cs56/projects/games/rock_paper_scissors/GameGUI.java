@@ -160,6 +160,7 @@ public class GameGUI extends JPanel {
         gc.gridx=1;
         gc.gridy=3;
         played.setEditable(false);
+	played.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
         frame.add(played, gc);
         gc.gridx=0;
         gc.gridy=4;
@@ -203,12 +204,15 @@ public class GameGUI extends JPanel {
         gc.gridx=3;
         gc.gridy=4;
         win.setEditable(false);
+	win.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
         frame.add(win, gc);
         gc.gridy=5;
         lose.setEditable(false);
+	lose.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
         frame.add(lose, gc);
         gc.gridy=6;
         tie.setEditable(false);
+	tie.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
         frame.add(tie, gc);
         frame.setSize(500,800);
         frame.getContentPane().setBackground(Color.BLACK);
