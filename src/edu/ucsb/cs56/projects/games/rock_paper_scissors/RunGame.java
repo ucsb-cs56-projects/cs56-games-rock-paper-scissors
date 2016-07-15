@@ -43,7 +43,7 @@ public class RunGame extends JFrame {
         getContentPane().add( radioPanel, BorderLayout.CENTER );
 	radioPanel.setBackground(Color.BLACK);
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(Color.BLUE);
+        buttonPanel.setBackground(Color.BLACK);
         JButton pickGame = new JButton( "Let's Play!" );
         pickGame.addActionListener( new PickGameListener() );
         Color customColorGreen = new Color(0,198, 0);

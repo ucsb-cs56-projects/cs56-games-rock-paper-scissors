@@ -92,9 +92,9 @@ public class GameGUI extends JPanel {
 		//String path3 = "/Users/edwardgonzalez/Desktop/CHOICE/src/rps/images/bulbasaur.jpg";
 
 		try {
-			java.net.URL path1 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/charmander.jpg");
-			java.net.URL path2 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/squirtle.jpg");
-			java.net.URL path3 = new URL("http://cs.ucsb.edu/~gegonzalez/cs56/S12/issues/0000513/browse/src/rps/images/bulbasaur.jpg");
+			java.net.URL path1 = new URL("https://raw.githubusercontent.com/giovannidominguez/cs56-games-rock-paper-scissors/master/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
+			java.net.URL path2 = new URL("https://raw.githubusercontent.com/giovannidominguez/cs56-games-rock-paper-scissors/master/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
+			java.net.URL path3 = new URL("https://raw.githubusercontent.com/giovannidominguez/cs56-games-rock-paper-scissors/master/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
 
 			
 			ImageIcon image = new ImageIcon(path1); //charmander
