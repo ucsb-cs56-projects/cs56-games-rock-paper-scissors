@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
+import java.awt.Color;
 
 
 /**
@@ -21,21 +22,25 @@ public class FirstPlayer extends JFrame {
     public FirstPlayer(String s, char c) {
 
         super("Pick your Pokemon " + s + "!");
-	name = s;
-	opponent=c;
+		name = s;
+		opponent=c;
         JPanel radioPanel = new JPanel();
         radioPanel.setLayout( new GridLayout(2, 4) );
+        radioPanel.setBackground(Color.BLACK);
         group = new ButtonGroup();
         JRadioButton charmander = new JRadioButton("Charmander", true);
-	charmander.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
-	charmander.setForeground(Color.ORANGE);
+		charmander.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
+		charmander.setForeground(Color.ORANGE);
         JRadioButton bulbasaur = new JRadioButton("Bulbasaur");
-	bulbasaur.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
-	Color customGreen = new Color(0,198, 0);// fix!!!!!!!!
-	bulbasaur.setForeground(Color.customGreen);
+		bulbasaur.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
+		Color customGreen = new Color(0,198, 0);// fix!!!!!!!!
+		bulbasaur.setForeground(customGreen);
         JRadioButton squirtle = new JRadioButton("Squirtle");
-	JRadioButton pik = new JRadioButton("Pikachu");
-	
+    	squirtle.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
+		squirtle.setForeground(Color.BLUE);
+		JRadioButton pik = new JRadioButton("Pikachu");
+		pik.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
+		pik.setForeground(Color.YELLOW);
         charmander.setActionCommand("Charmander");
         bulbasaur.setActionCommand("Bulbasaur");
         squirtle.setActionCommand("Squirtle");
@@ -66,6 +71,7 @@ public class FirstPlayer extends JFrame {
         getContentPane().add( radioPanel, BorderLayout.CENTER );
         JPanel buttonPanel = new JPanel();
         JButton pickFirst = new JButton("I choose you!");
+        buttonPanel.setBackground(Color.BLACK);
         pickFirst.addActionListener(new PickGameListener());
         buttonPanel.add(pickFirst);
         getContentPane().add( buttonPanel, BorderLayout.SOUTH );
