@@ -26,8 +26,13 @@ public class FirstPlayer extends JFrame {
         JPanel radioPanel = new JPanel();
         radioPanel.setLayout( new GridLayout(2, 4) );
         group = new ButtonGroup();
-        JRadioButton charmander = new JRadioButton("Charmander", true );
+        JRadioButton charmander = new JRadioButton("Charmander", true);
+	charmander.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
+	charmander.setForeground(Color.ORANGE);
         JRadioButton bulbasaur = new JRadioButton("Bulbasaur");
+	bulbasaur.setFont(new Font("SomeRandomFont",Font.BOLD, 16));
+	Color customGreen = new Color(0,198, 0);// fix!!!!!!!!
+	bulbasaur.setForeground(Color.customGreen);
         JRadioButton squirtle = new JRadioButton("Squirtle");
 	JRadioButton pik = new JRadioButton("Pikachu");
 	
