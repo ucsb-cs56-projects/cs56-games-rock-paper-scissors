@@ -6,10 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import java.awt.Color;
 /**
  *This class allows the second player to choose their Pokemon depending on what player one selected
- *@author Nicole Moghaddas and Laura Anthony (previous authors: Jordan Nguyen, Brandon Wicka)
+ *@author Giovanni Dominguez and Issac Holguin Previous Authors:Nicole Moghaddas and Laura Anthony (previous authors: Jordan Nguyen, Brandon Wicka)
  *@version for CS56, W16
  */
 public class SecondPlayer extends JFrame{
@@ -29,6 +29,7 @@ public class SecondPlayer extends JFrame{
     public SecondPlayer(final int x, String s, String t) {
         super("Pick your Pokemon " + t + "!");
         JPanel radioPanel = new JPanel();
+        radioPanel.setBackground(Color.BLACK);
 	player1name = s;
 	player2name = t;
         radioPanel.setLayout( new GridLayout(2, 4) );
@@ -37,10 +38,16 @@ public class SecondPlayer extends JFrame{
         if (x == 0) {
             firstPokemon = new JRadioButton("Charmander", true);
             firstPokemon.setActionCommand("Charmander");
+            firstPokemon.setForeground(Color.RED);
+	    firstPokemon.setBackground(Color.BLACK);
             secondPokemon = new JRadioButton("Squirtle");
             secondPokemon.setActionCommand("Squirtle");
+            secondPokemon.setForeground(Color.BLUE);
+	    secondPokemon.setBackground(Color.BLACK);
 	    thirdPokemon = new JRadioButton("Pikachu");
             thirdPokemon.setActionCommand("Pikachu");
+            thirdPokemon.setForeground(Color.YELLOW);
+	    thirdPokemon.setBackground(Color.BLACK);
 	    JLabel charmanderp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg"));
 	    radioPanel.add(charmanderp);
 	    JLabel squirtlep = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg"));
@@ -54,10 +61,17 @@ public class SecondPlayer extends JFrame{
         else if (x == 1) {
             firstPokemon = new JRadioButton("Bulbasaur", true);
             firstPokemon.setActionCommand("Bulbasaur");
+            Color customColor = new Color(0,198,0);
+            firstPokemon.setForeground(customColor);
+	    firstPokemon.setBackground(Color.BLACK);
             secondPokemon = new JRadioButton("Charmander");
             secondPokemon.setActionCommand("Charmander");
+            secondPokemon.setForeground(Color.RED);
+	    secondPokemon.setBackground(Color.BLACK);
 	    thirdPokemon = new JRadioButton("Pikachu");
             thirdPokemon.setActionCommand("Pikachu");
+            thirdPokemon.setForeground(Color.YELLOW);
+	    thirdPokemon.setBackground(Color.BLACK);
 	    JLabel bulbasaurp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg"));
 	    radioPanel.add(bulbasaurp);
 	    JLabel charmanderp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg"));
@@ -69,10 +83,17 @@ public class SecondPlayer extends JFrame{
         else if (x == 2) {
             firstPokemon = new JRadioButton("Bulbasaur", true);
             firstPokemon.setActionCommand("Bulbasaur");
+            Color customColor = new Color(0,198,0);
+            firstPokemon.setForeground(customColor);
+	    firstPokemon.setBackground(Color.BLACK);
             secondPokemon = new JRadioButton("Squirtle");
             secondPokemon.setActionCommand("Squirtle");
+            secondPokemon.setForeground(Color.BLUE);
+	    secondPokemon.setBackground(Color.BLACK);
 	    thirdPokemon = new JRadioButton("Pikachu");
             thirdPokemon.setActionCommand("Pikachu");
+            thirdPokemon.setForeground(Color.YELLOW);
+	    thirdPokemon.setBackground(Color.BLACK);
 	    JLabel bulbasaurp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg"));
 	    radioPanel.add(bulbasaurp);
 	    JLabel squirtlep = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg"));
@@ -81,14 +102,20 @@ public class SecondPlayer extends JFrame{
 	    radioPanel.add(pikachup);
         }
 
-	else {
+	else {//pika selected
             firstPokemon = new JRadioButton("Bulbasaur", true);
             firstPokemon.setActionCommand("Bulbasaur");
-	    
+	        Color customColor = new Color(0,198,0);
+            firstPokemon.setForeground(customColor);
+	    firstPokemon.setBackground(Color.BLACK);
             secondPokemon = new JRadioButton("Squirtle");
             secondPokemon.setActionCommand("Squirtle");
+            secondPokemon.setForeground(Color.BLUE);
+	    secondPokemon.setBackground(Color.BLACK);
 	    thirdPokemon = new JRadioButton("Charmander");
             thirdPokemon.setActionCommand("Charmander");
+            thirdPokemon.setForeground(Color.RED);
+	    thirdPokemon.setBackground(Color.BLACK);
 	    JLabel bulbasaurp = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg"));
 	    radioPanel.add(bulbasaurp);
 	    JLabel squirtlep = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg"));
@@ -106,6 +133,8 @@ public class SecondPlayer extends JFrame{
         getContentPane().add( radioPanel, BorderLayout.CENTER );
         buttonPanel = new JPanel();
         pickFirst = new JButton("I choose you!");
+        buttonPanel.setBackground(Color.BLACK);
+
         buttonPanel.add(pickFirst);
         getContentPane().add( buttonPanel, BorderLayout.SOUTH );
         setDefaultCloseOperation( EXIT_ON_CLOSE);
