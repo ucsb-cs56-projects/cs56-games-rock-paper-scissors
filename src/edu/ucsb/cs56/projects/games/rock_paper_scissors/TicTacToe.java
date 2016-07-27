@@ -108,6 +108,7 @@ public class TicTacToe extends JFrame{
 
         //load sounds for player 2
         if (name2 == "Bulbasaur") {
+
             pok2 = java.applet.Applet.newAudioClip(bulba);
         }
         else
@@ -180,6 +181,7 @@ public class TicTacToe extends JFrame{
                 }
 		count = 0;
 		sign = 0;
+		label.setText("It's " + name1 + "'s turn!"); 
 		return;
             }	
 	}
@@ -195,6 +197,7 @@ public class TicTacToe extends JFrame{
 			}
 			count = 0;
 			sign = 0;
+		label.setText("It's " + name1 + "'s turn!"); 
 			return;
         }
         
