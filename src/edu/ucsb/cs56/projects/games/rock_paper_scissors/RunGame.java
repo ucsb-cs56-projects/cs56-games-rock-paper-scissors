@@ -3,8 +3,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-//import edu.ucsb.cs56.projects.games.rock_paper_scissors.FirstPlayer.PickGameListener;
-
 import java.io.*;
 import java.util.ArrayList;
 /**
