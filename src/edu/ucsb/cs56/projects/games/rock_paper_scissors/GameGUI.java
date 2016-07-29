@@ -92,9 +92,9 @@ public class GameGUI extends JPanel {
 		//String path3 = "/Users/edwardgonzalez/Desktop/CHOICE/src/rps/images/bulbasaur.jpg";
 
 		try {
-			java.net.URL path1 = new URL("https://raw.githubusercontent.com/giovannidominguez/cs56-games-rock-paper-scissors/master/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/charmander.jpg");
-			java.net.URL path2 = new URL("https://raw.githubusercontent.com/giovannidominguez/cs56-games-rock-paper-scissors/master/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/squirtle.jpg");
-			java.net.URL path3 = new URL("https://raw.githubusercontent.com/giovannidominguez/cs56-games-rock-paper-scissors/master/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/bulbasaur.jpg");
+			java.net.URL path1 = new URL("https://raw.githubusercontent.com/giovannidominguez/cs56-games-rock-paper-scissors/master/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/Charmander.jpg");
+			java.net.URL path2 = new URL("https://raw.githubusercontent.com/giovannidominguez/cs56-games-rock-paper-scissors/master/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/Squirtle.jpg");
+			java.net.URL path3 = new URL("https://raw.githubusercontent.com/giovannidominguez/cs56-games-rock-paper-scissors/master/src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/Bulbasaur.jpg");
 
 			
 			ImageIcon image = new ImageIcon(path1); //charmander
