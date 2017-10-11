@@ -3,8 +3,8 @@
   original authors: Dennis Huynh and Aki Stankoski
   updated Jordan Nguyen & Brandon Wicka for W15
   updated Nicole Moghaddas & Laura Anthony for W16 -->
-  
-	<property environment="env"/> <!-- load the environment variables --> 
+
+	<property environment="env"/> <!-- load the environment variables -->
   	<property name="webRoot" 	value="${env.HOME}/public_html/cs56"/>
   	<property name="webBaseURL" 	value="http://www.cs.ucsb.edu/~${env.USER}/cs56"/>
 
@@ -23,7 +23,7 @@
   	<mkdir dir="build" />
     	<javac srcdir="src" destdir="build" debug="true" debuglevel="lines,source" includeantruntime="false">
 			<classpath refid="project.class.path" />
-   	</javac>  
+   	</javac>
 </target>
 
 <target name="run" depends="compile" description="run program">
@@ -31,36 +31,36 @@
 </target>
 
 <target name="clean" description="delete unnecessary files and directories">
-	<delete dir="build" 	quiet="true" />  
+	<delete dir="build" 	quiet="true" />
     	<delete dir= "javadoc" 	quiet="true" />
 </target>
 
-<target name="javadoc" depends="compile" description="Put documentation of my code on the web">                                                      	<delete dir="javadoc" quiet="true" />                                                          
-   	<javadoc  destdir="javadoc" author="true" version="true" use="true" >                          
+<target name="javadoc" depends="compile" description="put documentation of the code on the web">                                                      	<delete dir="javadoc" quiet="true" />
+   	<javadoc  destdir="javadoc" author="true" version="true" use="true" >
       		<fileset dir="src" includes="**/*.java"/>
 		<classpath refid="project.class.path" />
-   	</javadoc>                                                                                     
-                                                                                                  
-   <!-- delete the old javadoc -->                                                                
-   <delete quiet="true" dir="${javadocDest}" />                                                   
-                                                                                                  
-   <!-- copy everything you just made to the javadoc destination, and then make it readable -->   
-   <copy todir="${javadocDest}" >                                                                 
-   	<fileset dir="javadoc"/>                                                                     
-   </copy>                                                                                        
-                                                                                                  
-   <!-- Note: this only does the chmod command on the                                             
-        javadoc subdirectory and its contents.  You MIGHT have to                                 
-        MANUALLY do the chmod on the parent directories.  However,                                
-        you should only need to do that once. -->                                                 
-                                                                                                  
-   <chmod dir="${javadocDest}" perm="755"  type="dir" includes="**" />                            
-   <chmod dir="${javadocDest}" perm="755"  type="file" includes="**/*" />                         
-   <echo>Javadoc deployed to ${javadocURL}</echo>                                                 
-                                                                                                  
-</target>        
+   	</javadoc>
 
-<target name="test" depends="compile" description="Perform unit testing on my code">
+   <!-- delete the old javadoc -->
+   <delete quiet="true" dir="${javadocDest}" />
+
+   <!-- copy everything you just made to the javadoc destination, and then make it readable -->
+   <copy todir="${javadocDest}" >
+   	<fileset dir="javadoc"/>
+   </copy>
+
+   <!-- Note: this only does the chmod command on the
+        javadoc subdirectory and its contents.  You MIGHT have to
+        MANUALLY do the chmod on the parent directories.  However,
+        you should only need to do that once. -->
+
+   <chmod dir="${javadocDest}" perm="755"  type="dir" includes="**" />
+   <chmod dir="${javadocDest}" perm="755"  type="file" includes="**/*" />
+   <echo>Javadoc deployed to ${javadocURL}</echo>
+
+</target>
+
+<target name="test" depends="compile" description="perform unit testing on the code">
   	<junit haltonerror="no" haltonfailure="no">
 		<classpath refid="project.class.path" />
 
@@ -70,7 +70,7 @@
         		<include name="**/*Test.java"/>
        		</fileset>
 	</batchtest>
-	<formatter type="plain" usefile="false" />     
+	<formatter type="plain" usefile="false" />
   	</junit>
 </target>
 
