@@ -131,10 +131,12 @@ public class RunGame extends JFrame {
     private class TextFieldListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
 	    String name = field.getText();
-	    if (player == 1)
-		FirstPlayer(name, opponent);
-	    else
-	    SecondPlayer(character, player1name, name);
+        if (name.length() != 0) {
+	       if (player == 1)
+		      FirstPlayer(name, opponent);
+	       else
+	           SecondPlayer(character, player1name, name);
+        }
        }
     }
 
