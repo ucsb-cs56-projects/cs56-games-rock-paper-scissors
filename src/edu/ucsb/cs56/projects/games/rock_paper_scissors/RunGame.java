@@ -131,6 +131,7 @@ public class RunGame extends JFrame {
     private class TextFieldListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
 	    String name = field.getText();
+        //set the condition that the name cannot be empty
         if (name.length() != 0) {
 	       if (player == 1)
 		      FirstPlayer(name, opponent);
