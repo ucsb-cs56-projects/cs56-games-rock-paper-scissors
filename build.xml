@@ -60,6 +60,15 @@
 
 </target>
 
+<target name="jar" depends="compile" description="create a jar file">
+  <jar destfile="lib/build.jar">
+    <fileset dir="build/edu/ucsb/cs56/projects/games/rock_paper_scissors" includes="*.class"/>
+    <manifest>
+<attribute name="Main-Class" value="cs56-games-rock-paper-scissors"/>
+    </manifest>
+  </jar>
+</target>
+
 <target name="test" depends="compile" description="perform unit testing on the code">
   	<junit haltonerror="no" haltonfailure="no">
 		<classpath refid="project.class.path" />
