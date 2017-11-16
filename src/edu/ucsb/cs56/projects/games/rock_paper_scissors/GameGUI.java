@@ -44,7 +44,7 @@ public class GameGUI extends JPanel {
     JTextField lose = new JTextField(10);
     JTextField tie = new JTextField(10);
     JTextArea text = new JTextArea(20, 30);
-    JTextArea key = new JTextArea(10, 10);
+    JTextArea key = new JTextArea(15, 30);
     JScrollPane scroll = new JScrollPane(text);
     JScrollPane kscroll = new JScrollPane(key);
     Player player = new Player();
@@ -70,7 +70,8 @@ public class GameGUI extends JPanel {
         key.setEditable(false);
         //kscroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         //kscroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        kscroll.setPreferredSize(new Dimension(270,250));
+        // kscroll.setPreferredSize(new Dimension(270,250));
+        kscroll.setSize(400, 400);
         kscroll.setBackground(Color.GRAY);
 	key.setLineWrap(true);
 	key.append("This is your average rock- \npaper-scissors game, BUT \nplayed with your favorite \nPokemon characters! \n");
