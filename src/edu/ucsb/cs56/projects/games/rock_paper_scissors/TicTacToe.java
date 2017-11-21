@@ -37,7 +37,6 @@ public class TicTacToe extends JFrame{
 
 
 	public TicTacToe(ImageIcon first, ImageIcon second, String firstName, String secondName){
-		System.out.println("test1");
 		label = new JLabel("It's " + firstName + "'s turn!");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		this.image1 = first;
@@ -61,8 +60,6 @@ public class TicTacToe extends JFrame{
 			button[i].setEnabled(true);
 			button[i].addActionListener( new TicTacListener() );
 		}
-		System.out.println("works5");
-		System.out.println("works6");
 		gameChange.setPreferredSize( new Dimension(50,100));
 		gameChange.addActionListener ( new ChangeGameListener() );	
 		this.add( gameChange, BorderLayout.SOUTH);
@@ -137,9 +134,7 @@ public class TicTacToe extends JFrame{
 								pok1.play();
 								button[i].setEnabled(false);
 								isSet[i] = 1;	
-								System.out.println("works7");
 								if (count <5) {
-									System.out.println(count);
 									int [] preferedMove = {4,0,6,2,8,3,1,7,5};
 									int index = 0;
 									int randomSpot = preferedMove[index];
@@ -207,7 +202,7 @@ public class TicTacToe extends JFrame{
 						sign++;
 						checkWinner();
 					}
-					if ( (count >= 9 && !isComputer) || (switched&&isComputer&&count>=5) || (switched&&isComputer&&count>=4)) {
+					if ( (count >= 9 && !isComputer) || (switched&&isComputer&&count>=5) || (!switched&&isComputer&&count>=4)) {
 						JOptionPane.showMessageDialog(null, "Tie!");
 						for (int j = 0; j <= 8; j++){
 							button[j].setText("");

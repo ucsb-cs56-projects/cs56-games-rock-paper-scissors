@@ -126,9 +126,7 @@ public class RunGame extends JFrame {
                 getContentPane().setBackground(Color.black);
                 PlayerName(1,'p');
             } 
-            pickFirst.remove((Component) e.getSource());
-            pickFirst.validate();
-            pickFirst.repaint();        
+                 
        }
             
     }
@@ -204,9 +202,6 @@ public class RunGame extends JFrame {
 		}
 	    }
             getContentPane().remove((Component) e.getSource());
-            pickFirst.remove((Component) e.getSource());
-            pickFirst.validate();
-            pickFirst.repaint();    
 	}
     }
 //Peter D.
