@@ -31,11 +31,13 @@ public class TicTacToe extends JFrame{
 	String name1;
 	String name2;
 	AudioClip pok1, pok2;
+	boolean isComputer;
+	boolean switched;
 	URL bulba, charm, squirt;
 
 
 	public TicTacToe(ImageIcon first, ImageIcon second, String firstName, String secondName){
-		
+		System.out.println("test1");
 		label = new JLabel("It's " + firstName + "'s turn!");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		this.image1 = first;
@@ -46,13 +48,21 @@ public class TicTacToe extends JFrame{
 		panel.setLayout (new GridLayout(3,3));
 		this.add(panel);
 		button = new JButton[9];
+		if(name2=="EasyComputer"||name2=="DifficultComputer"||name2=="MediumComputer")
+		{
+			isComputer = true;
+		}else{
+			isComputer = false;
+		}
+		switched = false;
 		for (int i = 0; i <=8; i++){
 			button [i] = new JButton();
 			panel.add(button[i]);
 			button[i].setEnabled(true);
 			button[i].addActionListener( new TicTacListener() );
 		}
-
+		System.out.println("works5");
+		System.out.println("works6");
 		gameChange.setPreferredSize( new Dimension(50,100));
 		gameChange.addActionListener ( new ChangeGameListener() );	
 		this.add( gameChange, BorderLayout.SOUTH);
@@ -119,7 +129,34 @@ public class TicTacToe extends JFrame{
 					else
 						pok2 = java.applet.Applet.newAudioClip(charm);
 
-					if (name2=="Computer") {
+					if (name2=="MediumComputer"||name2=="DifficultComputer") {
+						for (int i = 0; i <= 8; i++){
+							if (button[i].equals(e.getSource())){
+								button[i].setIcon(image1);
+								button[i].setDisabledIcon(image1);
+								pok1.play();
+								button[i].setEnabled(false);
+								isSet[i] = 1;	
+								System.out.println("works7");
+								if (count <5) {
+									System.out.println(count);
+									int [] preferedMove = {4,0,6,2,8,3,1,7,5};
+									int index = 0;
+									int randomSpot = preferedMove[index];
+									while (index<9&&isSet[randomSpot]!=0) {
+										randomSpot = preferedMove[++index];
+									}
+									button[randomSpot].setIcon(image2);
+									button[randomSpot].setDisabledIcon(image2);
+									pok2.play();
+									button[randomSpot].setEnabled(false);
+									isSet[randomSpot]=2;
+									label.setText("It's " + name1 + "'s turn!");
+								}
+							}
+						}
+						checkWinner();
+					}else if (name2=="EasyComputer") {
 						for (int i = 0; i <= 8; i++){
 							if (button[i].equals(e.getSource())){
 								button[i].setIcon(image1);
@@ -129,12 +166,10 @@ public class TicTacToe extends JFrame{
 								isSet[i] = 1;	
 								
 								if (count <5) {
-
-									int [] preferedMove = {4,0,6,2,8,3,1,7,5};
 									int index = 0;
-									int randomSpot = preferedMove[index];
-									while (index<9&&isSet[randomSpot]!=0) {
-										randomSpot = preferedMove[++index];
+									int randomSpot = (int)(Math.random()*9);
+									while (isSet[randomSpot]==1||isSet[randomSpot]==2) {
+										randomSpot = (int)(Math.random()*9);
 									}
 									button[randomSpot].setIcon(image2);
 									button[randomSpot].setDisabledIcon(image2);
@@ -172,8 +207,7 @@ public class TicTacToe extends JFrame{
 						sign++;
 						checkWinner();
 					}
-					
-					if ( (count >= 9 && name2!="Computer") || (name2=="Computer"&&count>=5)) {
+					if ( (count >= 9 && !isComputer) || (switched&&isComputer&&count>=5) || (switched&&isComputer&&count>=4)) {
 						JOptionPane.showMessageDialog(null, "Tie!");
 						for (int j = 0; j <= 8; j++){
 							button[j].setText("");
@@ -195,7 +229,19 @@ public class TicTacToe extends JFrame{
 					button[j].setEnabled(true);
 					isSet[j] = 0;
 					button[j].setIcon(null);
-
+				}
+				if(isComputer){
+					int num = 4;
+					if(name2=="EasyComputer"){
+						num = (int)(Math.random()*9);
+					}
+					button[num].setIcon(image2);
+					button[num].setDisabledIcon(image2);
+					pok2.play();
+					button[num].setEnabled(false);
+					isSet[num]=2;
+					label.setText("It's " + name1 + "'s turn!");
+					switched = true;
 				}
 				count = 0;
 				sign = 0;
@@ -210,8 +256,8 @@ public class TicTacToe extends JFrame{
 					button[j].setEnabled(true);
 					isSet[j] = 0;
 					button[j].setIcon(null);
-
 				}
+				switched = false;
 				count = 0;
 				sign = 0;
 				return;

@@ -38,9 +38,13 @@ public class RunGame extends JFrame {
 	private JButton pickFirst;
 	public ArrayList<Integer> pokemon;
 	private JRadioButton fourthPokemon;
+    private GridBagConstraints gbc;
 
     public RunGame() {
         super( "Tic Tac Toe / Rock Paper Scissors" );
+        gbc = new GridBagConstraints();
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         radioPanel = new JPanel();
         layoutSize = radioPanel.getLayout();
         label = new JLabel("Welcome");
@@ -114,32 +118,23 @@ public class RunGame extends JFrame {
                 dispose();
             }
             if (selected == "Computer"){
-                PlayerName(1,'c');
+                ComputerDifficulity(1, 'c');
             }
             
             if (selected == "Person"){
+                setLayout(new GridBagLayout());
+                getContentPane().setBackground(Color.black);
                 PlayerName(1,'p');
             } 
-
-
-      
+            pickFirst.remove((Component) e.getSource());
+            pickFirst.validate();
+            pickFirst.repaint();        
        }
-
-		
+            
     }
+ 
     
-    private class TextFieldListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-	    String name = field.getText();
-        //set the condition that the name cannot be empty
-        if (name.length() != 0) {
-	       if (player == 1)
-		      FirstPlayer(name, opponent);
-	       else
-	           SecondPlayer(character, player1name, name);
-        }
-       }
-    }
+    
 
     private class HelpListener implements ActionListener{ //used for help button
         @Override
@@ -153,8 +148,7 @@ public class RunGame extends JFrame {
     private class PickGameListener2 implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String selected = group.getSelection().getActionCommand();
-
-	    if (opponent=='c') {
+	    if (opponent=='c'||opponent=='b'||opponent=='a') {
 		ImageIcon first = null;
 		ImageIcon second = null;
 		if (selected == "Squirtle") {
@@ -175,7 +169,15 @@ public class RunGame extends JFrame {
 		}
 		//delin sun changes: this if statement makes sure that the user choose one pokemon.
 		if(first!=null){
-		    new TicTacToe(first,second,name, "Computer");
+            if(opponent=='a'){
+                new TicTacToe(first,second,name, "EasyComputer");
+            }
+            if(opponent=='b'){
+                new TicTacToe(first,second,name, "MediumComputer");
+            }
+            if(opponent=='c'){
+                new TicTacToe(first,second,name, "DifficultComputer");
+            }
 		    dispose();
 		}
 		
@@ -201,38 +203,100 @@ public class RunGame extends JFrame {
 		    PlayerName(2, 3, name);
 		}
 	    }
+            getContentPane().remove((Component) e.getSource());
+            pickFirst.remove((Component) e.getSource());
+            pickFirst.validate();
+            pickFirst.repaint();    
 	}
     }
-
-	public void PlayerName(int i, char c) {
+//Peter D.
+//Provide choice between difficult, medium and hard
+	public void ComputerDifficulity(int i, char c) {
 	    radioPanel.removeAll();
 		buttonPanel.removeAll();
-        label.setText("Choose your player name");
-		radioPanel.setLayout(layoutSize);
+        label.setText("Choose Computer Difficulity");
+        label.setForeground(Color.white);
+        JButton hard = new JButton( "Difficult" );
+        hard.addActionListener(new DiffcultListener());
+        JButton medium = new JButton( "Medium" );
+        medium.addActionListener(new MediumListener());
+        JButton simple = new JButton( "Simple" );
+        simple.addActionListener(new SimpleListener());
+        setLayout(new GridBagLayout());
+
+        buttonPanel.add(hard);buttonPanel.add(medium);buttonPanel.add(simple);
+        add(label,gbc);
+        add(buttonPanel, gbc);
+        // add(medium, gbc);
+        // add(simple, gbc);
 		player = i;
 		opponent=c;
-		label = new JLabel("Player Name: ");
-		label.setForeground(Color.BLUE);
-		label.setFont(new Font("Courier", Font.BOLD,22));
-	    field = new JTextField("Enter name", 20);
-		field.setFont(new Font("Courier", Font.BOLD,22));
-		field.setForeground(Color.RED);
-		radioPanel.add(label);
-		radioPanel.add(field);
-		getContentPane().add( radioPanel, BorderLayout.CENTER );
-		field.addActionListener(new TextFieldListener());
-		field.addMouseListener(new MouseAdapter(){  //clears field text
-	        	@Override
-	        	public void mouseClicked(MouseEvent e){
-	        		field.setText("");
-	        	}
-	        });
-		setVisible(true);
-		
+        this.pack();
+        getContentPane().setBackground(Color.black);
+        setSize( 600, 300 );
+        setVisible(true);
 	}
-	
+    private class DiffcultListener implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            PlayerName(1,'c');
+        }
+    }
+    private class MediumListener implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            PlayerName(1,'b');
+        }
+    }
+    private class SimpleListener implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            PlayerName(1,'a');
+        }
+    }
+    public void PlayerName(int i, char c) {
+        this.pack();
+        radioPanel.removeAll();
+        buttonPanel.removeAll();
+        label.setText("Choose your player name");
+        label.setForeground(Color.white);
+        add(label,gbc);
+        radioPanel.setLayout(layoutSize);
+        player = i;
+        opponent=c;
+        label = new JLabel("Player Name: ");
+        label.setForeground(Color.BLUE);
+        label.setFont(new Font("Courier", Font.BOLD,22));
+        field = new JTextField("Enter name", 20);
+        field.setFont(new Font("Courier", Font.BOLD,22));
+        field.setForeground(Color.RED);
+        radioPanel.add(label);
+        radioPanel.add(field);
+        add( radioPanel,gbc );
+        field.addActionListener(new TextFieldListener());
+        field.addMouseListener(new MouseAdapter(){  //clears field text
+                @Override
+                public void mouseClicked(MouseEvent e){
+                    field.setText("");
+                }
+            });
+        setSize( 600, 300 );
+        setVisible(true);
+    }
+
+	private class TextFieldListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            String name = field.getText();
+            //set the condition that the name cannot be empty
+            if (name.length() != 0) {
+                if (player == 1)
+                    FirstPlayer(name, opponent);
+                else
+                    SecondPlayer(character, player1name, name);
+            }
+       }
+    }
 	public void PlayerName(int i, int j, String s) {
+        setSize( 600, 300 );
 		label.setText("Choose your player name");
+        label.setForeground(Color.white);
 		radioPanel.removeAll();
 		buttonPanel.removeAll();
 		player = i;
@@ -249,7 +313,7 @@ public class RunGame extends JFrame {
 		field.setForeground(Color.RED);
 		radioPanel.add(label);
 		radioPanel.add(field);
-		getContentPane().add( radioPanel, BorderLayout.CENTER );
+		add(radioPanel, gbc);
 		field.addActionListener(new TextFieldListener());
 	    field.addMouseListener(new MouseAdapter(){  ////clears field text
 	        	@Override
@@ -257,16 +321,17 @@ public class RunGame extends JFrame {
 	        		field.setText("");
 	        	}
 	        });
-
 		setVisible(true);
 	    }
 
 
 
 	public void ChooseOpponent() {
+        setSize( 600, 300 );
 		radioPanel.removeAll();
 		buttonPanel.removeAll();
         label.setText("Choose your Opponent!");
+        label.setForeground(Color.white);
 		getContentPane().setBackground(Color.WHITE);
         radioPanel.setLayout( new GridLayout(1, 2) );
         radioPanel.setOpaque(true);
@@ -304,10 +369,11 @@ public class RunGame extends JFrame {
 	
 	
 	public void FirstPlayer(String s, char c) {
-		
 		radioPanel.removeAll();
 		buttonPanel.removeAll();
+
         label.setText("Pick your Pokemon " + s + "!");
+        label.setForeground(Color.white);
 		name = s;
 		opponent=c;
         radioPanel.setLayout( new GridLayout(2, 4) );
@@ -358,19 +424,22 @@ public class RunGame extends JFrame {
         JLabel pikachup = new JLabel(new ImageIcon("src/edu/ucsb/cs56/projects/games/rock_paper_scissors/images/Pikachu.jpg"));
         radioPanel.add(pikachup);
 	
-        getContentPane().add( radioPanel, BorderLayout.CENTER );
+        add( radioPanel,gbc);
         JButton pickFirst = new JButton("I choose you!");
         buttonPanel.setBackground(Color.BLACK);
         pickFirst.addActionListener(new PickGameListener2());
         buttonPanel.add(pickFirst);
-        getContentPane().add( buttonPanel, BorderLayout.SOUTH );
+        add(pickFirst,gbc);
+        add(buttonPanel,gbc);
+        setSize(600,600);
         setVisible(true);
     }
 	
 	
 	
 	public void SecondPlayer(final int x, String s, String t) {
-		
+		setSize(600,600);
+
 		radioPanel.removeAll();
 		buttonPanel.removeAll();
 
@@ -437,12 +506,15 @@ public class RunGame extends JFrame {
                 radioPanel.add(fourthPokemon);
         	}
         }
-        getContentPane().add( radioPanel, BorderLayout.CENTER );
+        add(radioPanel,gbc);
         pickFirst = new JButton("I choose you!");
         buttonPanel.setBackground(Color.BLACK);
         label.setText("Pick your Pokemon " + s + "!");
+        label.setForeground(Color.white);
         buttonPanel.add(pickFirst);
-        getContentPane().add( buttonPanel, BorderLayout.SOUTH );
+        pickFirst.addActionListener(new PickGameListener2());
+        add(pickFirst,gbc);
+        add( buttonPanel, gbc);
         setDefaultCloseOperation( EXIT_ON_CLOSE);
         setVisible(true);
 
