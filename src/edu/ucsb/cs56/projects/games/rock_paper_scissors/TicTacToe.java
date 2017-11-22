@@ -17,7 +17,7 @@ import java.awt.Color;
  */
 
 
-public class TicTacToe extends JFrame{
+public class TicTacToe extends JFrame {
 
 	JPanel panel;
 	JButton[] button;
@@ -36,7 +36,7 @@ public class TicTacToe extends JFrame{
 	URL bulba, charm, squirt;
 
 
-	public TicTacToe(ImageIcon first, ImageIcon second, String firstName, String secondName){
+	public TicTacToe(ImageIcon first, ImageIcon second, String firstName, String secondName) {
 		label = new JLabel("It's " + firstName + "'s turn!");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		this.image1 = first;
@@ -44,275 +44,269 @@ public class TicTacToe extends JFrame{
 		this.name1 = firstName;
 		this.name2 = secondName;
 		panel = new JPanel ();
-		panel.setLayout (new GridLayout(3,3));
+		panel.setLayout (new GridLayout(3, 3));
 		this.add(panel);
 		button = new JButton[9];
-		if(name2=="EasyComputer"||name2=="DifficultComputer"||name2=="MediumComputer")
-		{
+		switched = false;
+		if (name2 == "EasyComputer" || name2 == "DifficultComputer" || name2 == "MediumComputer") {
 			isComputer = true;
-		}else{
+		} else {
 			isComputer = false;
 		}
 		switched = false;
-		for (int i = 0; i <=8; i++){
+		for (int i = 0; i <= 8; i++) {
 			button [i] = new JButton();
 			panel.add(button[i]);
 			button[i].setEnabled(true);
 			button[i].addActionListener( new TicTacListener() );
 		}
-		gameChange.setPreferredSize( new Dimension(50,100));
-		gameChange.addActionListener ( new ChangeGameListener() );	
+		gameChange.setPreferredSize( new Dimension(50, 100));
+		gameChange.addActionListener ( new ChangeGameListener() );
 		this.add( gameChange, BorderLayout.SOUTH);
 		this.add( label, BorderLayout.NORTH);
-		this.setSize(600,600);
+		this.setSize(600, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
 
-	class ChangeGameListener implements ActionListener{
-		public void actionPerformed(ActionEvent event){
+	class ChangeGameListener implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
 			dispose();
 			new RunGame();
 		}
 	}
 
-	class TicTacListener implements ActionListener{
-		public void actionPerformed(ActionEvent e){
+	class TicTacListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
 			count ++;
 
-        //load pokemon sound files
+			//load pokemon sound files
 			try {
 				bulba = new URL("file:src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/bulbasaur.wav");
-			}
-			catch (MalformedURLException ex) {
+			} catch (MalformedURLException ex) {
 				ex.printStackTrace();
 			}
 			try {
 				squirt = new URL("file:src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/squirtle.wav");
-			}
-			catch (MalformedURLException ex) {
+			} catch (MalformedURLException ex) {
 				ex.printStackTrace();
 			}
 			try {
 				charm = new URL("file:src/edu/ucsb/cs56/projects/games/rock_paper_scissors/sounds/charmander.wav");
-			}
-			catch (MalformedURLException ex) {
+			} catch (MalformedURLException ex) {
 				ex.printStackTrace();
 			}
 
-        //check which pokemon are in use and import their correct sounds
+			//check which pokemon are in use and import their correct sounds
 			if (name1 == "Bulbasaur") {
 				pok1 = java.applet.Applet.newAudioClip(bulba);
+			} else if (name1 == "Squirtle") {
+
+				pok1 = java.applet.Applet.newAudioClip(squirt);
+			} else {
+				pok1 = java.applet.Applet.newAudioClip(charm);
 			}
-			else
-				if(name1 == "Squirtle") {
 
-					pok1 = java.applet.Applet.newAudioClip(squirt);
-				}
-				else {
-					pok1 = java.applet.Applet.newAudioClip(charm);
-				}
+			//load sounds for player 2
+			if (name2 == "Bulbasaur") {
 
-        //load sounds for player 2
-				if (name2 == "Bulbasaur") {
+				pok2 = java.applet.Applet.newAudioClip(bulba);
+			} else if (name2 == "Squirtle") {
 
-					pok2 = java.applet.Applet.newAudioClip(bulba);
-				}
-				else
-					if(name2 == "Squirtle") {
+				pok2 = java.applet.Applet.newAudioClip(squirt);
+			} else
+				pok2 = java.applet.Applet.newAudioClip(charm);
 
-						pok2 = java.applet.Applet.newAudioClip(squirt);
-					}
-					else
-						pok2 = java.applet.Applet.newAudioClip(charm);
-
-					if (name2=="MediumComputer"||name2=="DifficultComputer") {
-						for (int i = 0; i <= 8; i++){
-							if (button[i].equals(e.getSource())){
-								button[i].setIcon(image1);
-								button[i].setDisabledIcon(image1);
-								pok1.play();
-								button[i].setEnabled(false);
-								isSet[i] = 1;	
-								if (count <5) {
-									int [] preferedMove = {4,0,6,2,8,3,1,7,5};
-									int index = 0;
-									int randomSpot = preferedMove[index];
-									while (index<9&&isSet[randomSpot]!=0) {
-										randomSpot = preferedMove[++index];
-									}
-									button[randomSpot].setIcon(image2);
-									button[randomSpot].setDisabledIcon(image2);
-									pok2.play();
-									button[randomSpot].setEnabled(false);
-									isSet[randomSpot]=2;
-									label.setText("It's " + name1 + "'s turn!");
-								}
+			if (name2 == "MediumComputer" || name2 == "DifficultComputer") {
+				for (int i = 0; i <= 8; i++) {
+					if (button[i].equals(e.getSource())) {
+						button[i].setIcon(image1);
+						button[i].setDisabledIcon(image1);
+						pok1.play();
+						button[i].setEnabled(false);
+						isSet[i] = 1;
+						if (count < 5) {
+							int [] preferedMove = {4, 0, 6, 2, 8, 3, 1, 7, 5};
+							int index = 0;
+							int randomSpot = preferedMove[index];
+							while (index < 9 && isSet[randomSpot] != 0) {
+								randomSpot = preferedMove[++index];
 							}
+							button[randomSpot].setIcon(image2);
+							button[randomSpot].setDisabledIcon(image2);
+							pok2.play();
+							button[randomSpot].setEnabled(false);
+							isSet[randomSpot] = 2;
+							label.setText("It's " + name1 + "'s turn!");
 						}
-						checkWinner();
-					}else if (name2=="EasyComputer") {
-						for (int i = 0; i <= 8; i++){
-							if (button[i].equals(e.getSource())){
-								button[i].setIcon(image1);
-								button[i].setDisabledIcon(image1);
-								pok1.play();
-								button[i].setEnabled(false);
-								isSet[i] = 1;	
-								
-								if (count <5) {
-									int index = 0;
-									int randomSpot = (int)(Math.random()*9);
-									while (isSet[randomSpot]==1||isSet[randomSpot]==2) {
-										randomSpot = (int)(Math.random()*9);
-									}
-									button[randomSpot].setIcon(image2);
-									button[randomSpot].setDisabledIcon(image2);
-									pok2.play();
-									button[randomSpot].setEnabled(false);
-									isSet[randomSpot]=2;
-									label.setText("It's " + name1 + "'s turn!");
-								}
-							}
-						}
-						checkWinner();
 					}
-					else {
-
-						for (int i = 0; i <= 8; i++){
-							if (button[i].equals(e.getSource())){
-								if (sign%2 == 0){
-									button[i].setIcon(image1);
-									button[i].setDisabledIcon(image1);
-									pok1.play();
-									button[i].setEnabled(false);
-									isSet[i] = 1;
-									label.setText("It's " + name2 + "'s turn!");
-								}
-								else{
-									button[i].setIcon(image2);
-									button[i].setDisabledIcon(image2);
-									pok2.play();
-									button[i].setEnabled(false);
-									isSet[i] = 2;
-									label.setText("It's " + name1 + "'s turn!");  
-								}
-							}
-						}
-						sign++;
-						checkWinner();
-					}
-					if ( (count >= 9 && !isComputer) || (switched&&isComputer&&count>=5) || (!switched&&isComputer&&count>=4)) {
-						JOptionPane.showMessageDialog(null, "Tie!");
-						for (int j = 0; j <= 8; j++){
-							button[j].setText("");
-							button[j].setEnabled(true);
-							isSet[j] = 0;
-							button[j].setIcon(null);
-						}
-						count = 0;
-						sign = 0;
-						label.setText("It's " + name1 + "'s turn!"); 
-						return;
-					}	
 				}
+				checkWinner();
+			} else if (name2 == "EasyComputer") {
+				for (int i = 0; i <= 8; i++) {
+					if (button[i].equals(e.getSource())) {
+						button[i].setIcon(image1);
+						button[i].setDisabledIcon(image1);
+						pok1.play();
+						button[i].setEnabled(false);
+						isSet[i] = 1;
+
+						if (count < 5) {
+							int index = 0;
+							int randomSpot = (int)(Math.random() * 9);
+							while (isSet[randomSpot] == 1 || isSet[randomSpot] == 2) {
+								randomSpot = (int)(Math.random() * 9);
+							}
+							button[randomSpot].setIcon(image2);
+							button[randomSpot].setDisabledIcon(image2);
+							pok2.play();
+							button[randomSpot].setEnabled(false);
+							isSet[randomSpot] = 2;
+							label.setText("It's " + name1 + "'s turn!");
+						}
+					}
+				}
+				checkWinner();
+			} else {
+
+				for (int i = 0; i <= 8; i++) {
+					if (button[i].equals(e.getSource())) {
+						if (sign % 2 == 0) {
+							button[i].setIcon(image1);
+							button[i].setDisabledIcon(image1);
+							pok1.play();
+							button[i].setEnabled(false);
+							isSet[i] = 1;
+							label.setText("It's " + name2 + "'s turn!");
+						} else {
+							button[i].setIcon(image2);
+							button[i].setDisabledIcon(image2);
+							pok2.play();
+							button[i].setEnabled(false);
+							isSet[i] = 2;
+							label.setText("It's " + name1 + "'s turn!");
+						}
+					}
+				}
+				sign++;
+				checkWinner();
 			}
-			public void firstPlayerWins(){
-				JOptionPane.showMessageDialog(null, name1 + " Wins!");
-				for (int j = 0; j <= 8; j++){
-					button[j].setText("");
-					button[j].setEnabled(true);
-					isSet[j] = 0;
-					button[j].setIcon(null);
-				}
-				if(isComputer){
-					int num = 4;
-					if(name2=="EasyComputer"){
-						num = (int)(Math.random()*9);
-					}
-					button[num].setIcon(image2);
-					button[num].setDisabledIcon(image2);
-					pok2.play();
-					button[num].setEnabled(false);
-					isSet[num]=2;
-					label.setText("It's " + name1 + "'s turn!");
-					switched = true;
-				}
-				count = 0;
-				sign = 0;
-				label.setText("It's " + name1 + "'s turn!"); 
-				return;
-			}
-			
-			public void secondPlayerWins(){
-				JOptionPane.showMessageDialog(null, name2 + " Wins!");
-				for (int j = 0; j <= 8; j++){
-					button[j].setText("");
-					button[j].setEnabled(true);
-					isSet[j] = 0;
-					button[j].setIcon(null);
-				}
+			if(switched){
+				System.out.println("switched");
+			}else{System.out.println("not switched");}
+			System.out.println(count);
+			if ( (count >= 9 && !isComputer) || (switched && isComputer && count >= 4) || (!switched && isComputer && count >= 5)) {
+				JOptionPane.showMessageDialog(null, "Tie!");
 				switched = false;
+				for (int j = 0; j <= 8; j++) {
+					button[j].setText("");
+					button[j].setEnabled(true);
+					isSet[j] = 0;
+					button[j].setIcon(null);
+				}
 				count = 0;
 				sign = 0;
+				label.setText("It's " + name1 + "'s turn!");
 				return;
 			}
-			
-			public void checkWinner(){
-		//First Player wins case
-				if (isSet [0] == 1 && isSet[1] == 1 && isSet[2] == 1){
-					firstPlayerWins();
-				}
-				if (isSet [3] == 1 && isSet[4] == 1 && isSet[5] == 1){
-					firstPlayerWins();
-				}
-				if (isSet [6] == 1 && isSet[7] == 1 && isSet[8] == 1){
-					firstPlayerWins();
-				}
-				if (isSet [0] == 1 && isSet[3] == 1 && isSet[6] == 1){
-					firstPlayerWins();
-				}
-				if (isSet [1] == 1 && isSet[4] == 1 && isSet[7] == 1){
-					firstPlayerWins();
-				}
-				if (isSet [2] == 1 && isSet[5] == 1 && isSet[8] == 1){
-					firstPlayerWins();
-				}
-				if (isSet [0] == 1 && isSet[4] == 1 && isSet[8] == 1){
-					firstPlayerWins();
-				}
-				if (isSet [2] == 1 && isSet[4] == 1 && isSet[6] == 1){
-					firstPlayerWins();
-				}
-
-				
-				
-		//Second Player wins case
-				if (isSet [0] == 2 && isSet[1] == 2 && isSet[2] == 2){
-					secondPlayerWins();
-				}
-				if (isSet [3] == 2 && isSet[4] == 2 && isSet[5] == 2){
-					secondPlayerWins();
-				}
-				if (isSet [6] == 2 && isSet[7] == 2 && isSet[8] == 2){
-					secondPlayerWins();
-				}
-				if (isSet [0] == 2 && isSet[3] == 2 && isSet[6] == 2){
-					secondPlayerWins();
-				}
-				if (isSet [1] == 2 && isSet[4] == 2 && isSet[7] == 2){
-					secondPlayerWins();
-				}
-				if (isSet [2] == 2 && isSet[5] == 2 && isSet[8] == 2){
-					secondPlayerWins();
-				}
-				if (isSet [0] == 2 && isSet[4] == 2 && isSet[8] == 2){
-					secondPlayerWins();
-				}
-				if (isSet [2] == 2 && isSet[4] == 2 && isSet[6] == 2){
-					secondPlayerWins();
-				}
-
-			}
-
 		}
+	}
+	public void firstPlayerWins() {
+		JOptionPane.showMessageDialog(null, name1 + " Wins!");
+		for (int j = 0; j <= 8; j++) {
+			button[j].setText("");
+			button[j].setEnabled(true);
+			isSet[j] = 0;
+			button[j].setIcon(null);
+		}
+		if (isComputer) {
+			int num = 4;
+			if (name2 == "EasyComputer") {
+				num = (int)(Math.random() * 9);
+			}
+			button[num].setIcon(image2);
+			button[num].setDisabledIcon(image2);
+			pok2.play();
+			button[num].setEnabled(false);
+			isSet[num] = 2;
+			label.setText("It's " + name1 + "'s turn!");
+			switched = true;
+		}
+
+		sign = 0;
+		label.setText("It's " + name1 + "'s turn!");
+		return;
+	}
+
+	public void secondPlayerWins() {
+		JOptionPane.showMessageDialog(null, name2 + " Wins!");
+		for (int j = 0; j <= 8; j++) {
+			button[j].setText("");
+			button[j].setEnabled(true);
+			isSet[j] = 0;
+			button[j].setIcon(null);
+		}
+		switched = false;
+		count = 0;
+		sign = 0;
+		return;
+	}
+
+	public void checkWinner() {
+		//First Player wins case
+		if (isSet [0] == 1 && isSet[1] == 1 && isSet[2] == 1) {
+			firstPlayerWins();
+		}
+		if (isSet [3] == 1 && isSet[4] == 1 && isSet[5] == 1) {
+			firstPlayerWins();
+		}
+		if (isSet [6] == 1 && isSet[7] == 1 && isSet[8] == 1) {
+			firstPlayerWins();
+		}
+		if (isSet [0] == 1 && isSet[3] == 1 && isSet[6] == 1) {
+			firstPlayerWins();
+		}
+		if (isSet [1] == 1 && isSet[4] == 1 && isSet[7] == 1) {
+			firstPlayerWins();
+		}
+		if (isSet [2] == 1 && isSet[5] == 1 && isSet[8] == 1) {
+			firstPlayerWins();
+		}
+		if (isSet [0] == 1 && isSet[4] == 1 && isSet[8] == 1) {
+			firstPlayerWins();
+		}
+		if (isSet [2] == 1 && isSet[4] == 1 && isSet[6] == 1) {
+			firstPlayerWins();
+		}
+
+
+
+		//Second Player wins case
+		if (isSet [0] == 2 && isSet[1] == 2 && isSet[2] == 2) {
+			secondPlayerWins();
+		}
+		if (isSet [3] == 2 && isSet[4] == 2 && isSet[5] == 2) {
+			secondPlayerWins();
+		}
+		if (isSet [6] == 2 && isSet[7] == 2 && isSet[8] == 2) {
+			secondPlayerWins();
+		}
+		if (isSet [0] == 2 && isSet[3] == 2 && isSet[6] == 2) {
+			secondPlayerWins();
+		}
+		if (isSet [1] == 2 && isSet[4] == 2 && isSet[7] == 2) {
+			secondPlayerWins();
+		}
+		if (isSet [2] == 2 && isSet[5] == 2 && isSet[8] == 2) {
+			secondPlayerWins();
+		}
+		if (isSet [0] == 2 && isSet[4] == 2 && isSet[8] == 2) {
+			secondPlayerWins();
+		}
+		if (isSet [2] == 2 && isSet[4] == 2 && isSet[6] == 2) {
+			secondPlayerWins();
+		}
+
+	}
+
+}
