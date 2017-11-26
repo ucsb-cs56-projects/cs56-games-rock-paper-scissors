@@ -88,6 +88,17 @@ gc.insets = new Insets(5,75,5,5);
 To start the game, use `ant run`.
 
 ## More info
+Brief paths:
+Choose to play Tic-Tac-Toe or Rock-Paper-Scissors
+![](http://i.imgur.com/OhkItzG.png)
+Tic-Tac-toe game looks like this:
+![](https://i.imgur.com/ua0yaZL.png)
+A player wins when he or she successfully places three pieces in a row. If the game board fills up before either player gets three in a row, a tie is declared. 
+
+Rock-Paper-Scissors game looks like this:
+![](https://i.imgur.com/by5GarX.png)
+The user can select their Pokemon (Bulbasaur, Squirtle, or Charmander) from the bottom left to act as their rock, paper, or scissors. The computer simultaneously selects their own Pokemon randomly to play.
+
 For a more in-depth look at this program, please visit the [wiki](https://github.com/UCSB-CS56-Projects/cs56-games-rock-paper-scissors/wiki).
 
 ## W16 Final Remarks
