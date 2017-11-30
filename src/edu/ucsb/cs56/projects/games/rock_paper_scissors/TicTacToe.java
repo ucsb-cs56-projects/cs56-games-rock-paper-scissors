@@ -191,10 +191,6 @@ public class TicTacToe extends JFrame {
 				sign++;
 				checkWinner();
 			}
-			if(switched){
-				System.out.println("switched");
-			}else{System.out.println("not switched");}
-			System.out.println(count);
 			if ( (count >= 9 && !isComputer) || (switched && isComputer && count >= 4) || (!switched && isComputer && count >= 5)) {
 				JOptionPane.showMessageDialog(null, "Tie!");
 				switched = false;
@@ -232,7 +228,7 @@ public class TicTacToe extends JFrame {
 			label.setText("It's " + name1 + "'s turn!");
 			switched = true;
 		}
-
+		count = 0;
 		sign = 0;
 		label.setText("It's " + name1 + "'s turn!");
 		return;
