@@ -14,6 +14,8 @@
   	<property name="javadocDest" 	value="${webRoot}/${project}/javadoc" />
   	<property name="javadocURL" 	value="${webBaseURL}/${project}/javadoc"/>
 
+	<property name="public_javadoc_path" location="../gh-pages/cs56-games-rock-paper-scissors/javadoc"/>
+
 	<path id="project.class.path">
 		<pathelement location="build"/>
 		<pathelement location="lib/junit-4.8.2.jar"/>
@@ -42,21 +44,19 @@
    	</javadoc>
 
    <!-- delete the old javadoc -->
-   <delete quiet="true" dir="${javadocDest}" />
-
-   <!-- copy everything you just made to the javadoc destination, and then make it readable -->
-   <copy todir="${javadocDest}" >
-   	<fileset dir="javadoc"/>
+   <delete quiet="true">
+	   <fileset dir="${public_javadoc_path}" />
+   </delete>
+   <mkdir dir="${public_javadoc_path}" />
+   <copy todir="${public_javadoc_path}">
+	   <fileset dir="javadoc" />
    </copy>
+   <echo>
+	   javadoc copied to ${public_javadoc_path}/index.html 
+	   TO PUBLISH: cd into that repo, then git add javadoc;
+	   git commit -m "update javadoc"; git push origin master
+   </echo>
 
-   <!-- Note: this only does the chmod command on the
-        javadoc subdirectory and its contents.  You MIGHT have to
-        MANUALLY do the chmod on the parent directories.  However,
-        you should only need to do that once. -->
-
-   <chmod dir="${javadocDest}" perm="755"  type="dir" includes="**" />
-   <chmod dir="${javadocDest}" perm="755"  type="file" includes="**/*" />
-   <echo>Javadoc deployed to ${javadocURL}</echo>
 
 </target>
 
